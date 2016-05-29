@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<project name="CopyLogImporter" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+    <property name="exeDirectory" value="${env.CURRENT_DIR}/Build/Program" />
+    <property name="references" value="/r:${classlibDirectory}\DocMageFramework.dll /r:${classlibDirectory}\AccountingLib.dll" />
+
+    <target name="main">
+        <delete dir="${exeDirectory}" failonerror="false" />
+        <mkdir dir="${exeDirectory}"/>
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:winexe /out:${exeDirectory}/CopyLogImporter.exe ${references} /recurse:*.cs " />
+        </exec>
+    </target>
+</project>

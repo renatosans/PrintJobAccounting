@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<project name="MyXls" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+
+    <target name="main">
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:library /out:${classlibDirectory}/MyXls.dll /recurse:*.cs " />
+        </exec>
+    </target>
+</project>

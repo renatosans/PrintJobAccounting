@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="AccountingInstaller" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="rootDirectory" value="${env.CURRENT_DIR}/Build" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+    <property name="exeDirectory" value="${env.CURRENT_DIR}/Build/Program" />
+    <property name="webDirectory" value="${env.CURRENT_DIR}/Build/WebFrontend" />
+    <property name="servicesDirectory" value="${env.CURRENT_DIR}/Build/WindowsServices" />
+    <property name="scriptsDirectory" value="${env.CURRENT_DIR}/Build/DatabaseScripts" />
+    <property name="references" value="/reference:${classlibDirectory}\SharpZipLib.dll" />
+    <property name="resources" value="/resource:AccountingInstaller.MainForm.resources /resource:${classlibDirectory}\SharpZipLib.dll /resource:${rootDirectory}\ServerFiles.zip" />
+    <property name="warning1" value="O método GetRootDirectory(FileInfo[] files) presente nos instaladores tem uma limitação em seu funcionamento." />
+    <property name="warning2" value="É necessário a presença deste arquivo (Leiame.txt) na estrutura de pastas para evitar erros decorrentes desta limitação." />
+
+    <target name="main">
+        <!-- Compila o programa duas vezes, na primeira utiliza um recurso interno e na segunda insere o produto deste recurso na compilação -->
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:winexe /out:${exeDirectory}/ServerSetup_util.exe /reference:${classlibDirectory}\SharpZipLib.dll /recurse:*.cs " />
+        </exec>
+        <copy todir="${rootDirectory}/Scripts">
+            <fileset dir="${env.CURRENT_DIR}/Source/Scripts">
+                <include name="**\*.sql" />
+            </fileset>
+        </copy>
+        <exec executable="${exeDirectory}/ServerSetup_util.exe" failonerror="true">
+            <arg line="/X:${rootDirectory}\Scripts" />
+        </exec>
+        <move file="ScriptFiles.xml" tofile="${scriptsDirectory}/ScriptFiles.xml" />
+        <copy todir="${scriptsDirectory}">
+            <fileset dir="${env.CURRENT_DIR}/Source/Scripts">
+                <include name="ExecutionOrder.txt" />
+            </fileset>
+        </copy>
+        <echo file="leiame.txt" message="${warning1}${line.separator}${warning2}${line.separator}" />
+        <move todir="${webDirectory}">
+            <fileset dir=".">
+                <include name="leiame.txt" />
+            </fileset>
+        </move>
+        <copy todir="${servicesDirectory}">
+            <fileset dir="${classlibDirectory}">
+                <include name="DocMageFramework.*" />
+                <include name="AccountingLib.*" />
+                <include name="iTextSharp.*" />
+                <include name="MyXls.*" />
+            </fileset>
+        </copy>
+        <copy todir="${servicesDirectory}">
+            <fileset dir="${exeDirectory}">
+                <include name="CopyLogImporter.exe" />
+                <include name="PrintLogImporter.exe" />
+                <include name="ReportMailer.exe" />
+                <include name="BackupUtility.exe" />
+            </fileset>
+        </copy>
+        <zip zipfile="Temp.zip">
+            <fileset dir="${rootDirectory}" >
+                <include name="DatabaseScripts\**" />
+                <include name="WebFrontend\**" />
+                <include name="WindowsServices\**" />
+            </fileset>
+        </zip>
+        <move file="Temp.zip" tofile="${rootDirectory}/ServerFiles.zip" />
+        <delete file="${exeDirectory}/ServerSetup_util.exe" />
+        <delete dir="${scriptsDirectory}" />
+        <delete dir="${webDirectory}" />
+        <delete dir="${servicesDirectory}" />
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:winexe /out:${rootDirectory}/ServerSetup.exe ${references} ${resources} /recurse:*.cs " />
+        </exec>
+        <move file="${rootDirectory}/ServerFiles.zip" tofile="${rootDirectory}/DebugData/ServerFiles.zip" />
+    </target>
+</project>

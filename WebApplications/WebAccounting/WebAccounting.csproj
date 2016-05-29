@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{284A092B-AEB5-429C-8C7A-9E7D58FBD057}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebAccounting</RootNamespace>
+    <AssemblyName>WebAccounting</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PageCounterHistory.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="PageCounters.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingMasterPage.master.cs">
+      <DependentUpon>AccountingMasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountingMasterPage.master.designer.cs">
+      <DependentUpon>AccountingMasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="AssociateSettings.aspx.cs">
+      <DependentUpon>AssociateSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssociateSettings.aspx.designer.cs">
+      <DependentUpon>AssociateSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigCostCenters.aspx.cs">
+      <DependentUpon>ConfigCostCenters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfigCostCenters.aspx.designer.cs">
+      <DependentUpon>ConfigCostCenters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigLogins.aspx.cs">
+      <DependentUpon>ConfigLogins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfigLogins.aspx.designer.cs">
+      <DependentUpon>ConfigLogins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigMailing.aspx.cs">
+      <DependentUpon>ConfigMailing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfigMailing.aspx.designer.cs">
+      <DependentUpon>ConfigMailing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigPreferences.aspx.cs">
+      <DependentUpon>ConfigPreferences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfigPreferences.aspx.designer.cs">
+      <DependentUpon>ConfigPreferences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigPrinters.aspx.cs">
+      <DependentUpon>ConfigPrinters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfigPrinters.aspx.designer.cs">
+      <DependentUpon>ConfigPrinters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigUsers.aspx.cs">
+      <DependentUpon>ConfigUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfigUsers.aspx.designer.cs">
+      <DependentUpon>ConfigUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigSmtpServers.aspx.cs">
+      <DependentUpon>ConfigSmtpServers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfigSmtpServers.aspx.designer.cs">
+      <DependentUpon>ConfigSmtpServers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CopiedDocuments.aspx.cs">
+      <DependentUpon>CopiedDocuments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CopiedDocuments.aspx.designer.cs">
+      <DependentUpon>CopiedDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenterSettings.aspx.cs">
+      <DependentUpon>CostCenterSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CostCenterSettings.aspx.designer.cs">
+      <DependentUpon>CostCenterSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceCopyingCosts.aspx.cs">
+      <DependentUpon>DeviceCopyingCosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeviceCopyingCosts.aspx.designer.cs">
+      <DependentUpon>DeviceCopyingCosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceCostDetails.aspx.cs">
+      <DependentUpon>DeviceCostDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeviceCostDetails.aspx.designer.cs">
+      <DependentUpon>DeviceCostDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DevicePrintingCosts.aspx.cs">
+      <DependentUpon>DevicePrintingCosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevicePrintingCosts.aspx.designer.cs">
+      <DependentUpon>DevicePrintingCosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DuplexPrintingCosts.aspx.cs">
+      <DependentUpon>DuplexPrintingCosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DuplexPrintingCosts.aspx.designer.cs">
+      <DependentUpon>DuplexPrintingCosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export.aspx.cs">
+      <DependentUpon>Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export.aspx.designer.cs">
+      <DependentUpon>Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupCostDetails.aspx.cs">
+      <DependentUpon>GroupCostDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupCostDetails.aspx.designer.cs">
+      <DependentUpon>GroupCostDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupPrintingCosts.aspx.cs">
+      <DependentUpon>GroupPrintingCosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupPrintingCosts.aspx.designer.cs">
+      <DependentUpon>GroupPrintingCosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationService.aspx.cs">
+      <DependentUpon>IntegrationService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IntegrationService.aspx.designer.cs">
+      <DependentUpon>IntegrationService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobRoutingService.aspx.cs">
+      <DependentUpon>JobRoutingService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobRoutingService.aspx.designer.cs">
+      <DependentUpon>JobRoutingService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseFile.aspx.cs">
+      <DependentUpon>LicenseFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LicenseFile.aspx.designer.cs">
+      <DependentUpon>LicenseFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses.aspx.cs">
+      <DependentUpon>Licenses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Licenses.aspx.designer.cs">
+      <DependentUpon>Licenses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSettings.aspx.cs">
+      <DependentUpon>LoginSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginSettings.aspx.designer.cs">
+      <DependentUpon>LoginSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MailingSettings.aspx.cs">
+      <DependentUpon>MailingSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MailingSettings.aspx.designer.cs">
+      <DependentUpon>MailingSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageCounterHistory.aspx.cs">
+      <DependentUpon>PageCounterHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageCounterHistory.aspx.designer.cs">
+      <DependentUpon>PageCounterHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Print.aspx.cs">
+      <DependentUpon>Print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print.aspx.designer.cs">
+      <DependentUpon>Print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintedDocuments.aspx.cs">
+      <DependentUpon>PrintedDocuments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintedDocuments.aspx.designer.cs">
+      <DependentUpon>PrintedDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterSettings.aspx.cs">
+      <DependentUpon>PrinterSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrinterSettings.aspx.designer.cs">
+      <DependentUpon>PrinterSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuotaExceeded.aspx.cs">
+      <DependentUpon>QuotaExceeded.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuotaExceeded.aspx.designer.cs">
+      <DependentUpon>QuotaExceeded.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsMasterPage.master.cs">
+      <DependentUpon>SettingsMasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SettingsMasterPage.master.designer.cs">
+      <DependentUpon>SettingsMasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="SmtpServerSettings.aspx.cs">
+      <DependentUpon>SmtpServerSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SmtpServerSettings.aspx.designer.cs">
+      <DependentUpon>SmtpServerSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCopyingCosts.aspx.cs">
+      <DependentUpon>UserCopyingCosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserCopyingCosts.aspx.designer.cs">
+      <DependentUpon>UserCopyingCosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCostDetails.aspx.cs">
+      <DependentUpon>UserCostDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserCostDetails.aspx.designer.cs">
+      <DependentUpon>UserCostDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPrintingCosts.aspx.cs">
+      <DependentUpon>UserPrintingCosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPrintingCosts.aspx.designer.cs">
+      <DependentUpon>UserPrintingCosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSettings.aspx.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSettings.aspx.designer.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageCounters.aspx.cs">
+      <DependentUpon>PageCounters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageCounters.aspx.designer.cs">
+      <DependentUpon>PageCounters.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\DataAccess.xml" />
+    <Content Include="Images\HeaderBottomBackground.gif" />
+    <Content Include="Images\HeaderTopBackground.gif" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\MenuItemBackground.gif" />
+    <Content Include="Images\MenuItemHoverBackground.gif" />
+    <Content Include="LoginPage.aspx" />
+    <Content Include="LoginSettings.aspx" />
+    <Content Include="MailingSettings.aspx" />
+    <Content Include="Scripts\AppUtils.js" />
+    <Content Include="SettingsMasterPage.master" />
+    <Content Include="SmtpServerSettings.aspx" />
+    <Content Include="StyleSheets\BodyStyles.css" />
+    <Content Include="StyleSheets\HeaderStyles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ClassLibraries\AccountingLib\AccountingLib.csproj">
+      <Project>{ECCAD4C8-111B-413F-96B1-84B9E313B852}</Project>
+      <Name>AccountingLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ClassLibraries\DocMageFramework\DocMageFramework.csproj">
+      <Project>{A0EE3595-4557-407C-81A8-59271DA8F49D}</Project>
+      <Name>DocMageFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="AccountingMasterPage.master" />
+    <Content Include="AssociateSettings.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="ConfigCostCenters.aspx" />
+    <Content Include="ConfigLogins.aspx" />
+    <Content Include="ConfigMailing.aspx" />
+    <Content Include="ConfigPreferences.aspx" />
+    <Content Include="ConfigPrinters.aspx" />
+    <Content Include="ConfigUsers.aspx" />
+    <Content Include="ConfigSmtpServers.aspx" />
+    <Content Include="CopiedDocuments.aspx" />
+    <Content Include="CostCenterSettings.aspx" />
+    <Content Include="DeviceCopyingCosts.aspx" />
+    <Content Include="DeviceCostDetails.aspx" />
+    <Content Include="DevicePrintingCosts.aspx" />
+    <Content Include="DuplexPrintingCosts.aspx" />
+    <Content Include="Export.aspx" />
+    <Content Include="GroupCostDetails.aspx" />
+    <Content Include="GroupPrintingCosts.aspx" />
+    <Content Include="Images\ChangePassword.ico" />
+    <Content Include="Images\Download.ico" />
+    <Content Include="Images\Edit.ico" />
+    <Content Include="Images\Execute.ico" />
+    <Content Include="Images\Login.png" />
+    <Content Include="Images\MoveFirstDisabled.ico" />
+    <Content Include="Images\MoveFirstEnabled.ico" />
+    <Content Include="Images\MoveLastDisabled.ico" />
+    <Content Include="Images\MoveLastEnabled.ico" />
+    <Content Include="Images\MoveNextDisabled.ico" />
+    <Content Include="Images\MoveNextEnabled.ico" />
+    <Content Include="Images\MovePreviousDisabled.ico" />
+    <Content Include="Images\MovePreviousEnabled.ico" />
+    <Content Include="Images\NextMonth.gif" />
+    <Content Include="Images\NextYear.gif" />
+    <Content Include="Images\PreviousMonth.gif" />
+    <Content Include="Images\PreviousYear.gif" />
+    <Content Include="Images\Remove.ico" />
+    <Content Include="IntegrationService.aspx" />
+    <Content Include="JobRoutingService.aspx" />
+    <Content Include="LicenseFile.aspx" />
+    <Content Include="Licenses.aspx" />
+    <Content Include="Print.aspx" />
+    <Content Include="PrintedDocuments.aspx" />
+    <Content Include="PrinterSettings.aspx" />
+    <Content Include="QuotaExceeded.aspx" />
+    <Content Include="Scripts\Calendar.js" />
+    <Content Include="Scripts\CalendarLanguage.js" />
+    <Content Include="Scripts\DateRange.js" />
+    <Content Include="Scripts\DropDownMenu.js" />
+    <Content Include="Scripts\jquery-1.4.2.js" />
+    <Content Include="Scripts\jquery-1.4.2.min.js" />
+    <Content Include="StyleSheets\AboutStyles.css" />
+    <Content Include="StyleSheets\CalendarStyles.css" />
+    <Content Include="StyleSheets\DropDownMenuStyles.css" />
+    <Content Include="StyleSheets\LoginStyles.css" />
+    <Content Include="UserCopyingCosts.aspx" />
+    <Content Include="UserCostDetails.aspx" />
+    <Content Include="UserPrintingCosts.aspx" />
+    <Content Include="UserSettings.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Client\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>2086</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

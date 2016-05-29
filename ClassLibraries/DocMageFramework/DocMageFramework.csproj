@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0EE3595-4557-407C-81A8-59271DA8F49D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocMageFramework</RootNamespace>
+    <AssemblyName>DocMageFramework</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppUtils\Cipher.cs" />
+    <Compile Include="AppUtils\CSVReader.cs" />
+    <Compile Include="AppUtils\DateFormat.cs" />
+    <Compile Include="AppUtils\FileLogger.cs" />
+    <Compile Include="AppUtils\IListener.cs" />
+    <Compile Include="AppUtils\IOHandler.cs" />
+    <Compile Include="AppUtils\IReportBuilder.cs" />
+    <Compile Include="AppUtils\MailSender.cs" />
+    <Compile Include="AppUtils\ObjectSerializer.cs" />
+    <Compile Include="AppUtils\RequestHandler.cs" />
+    <Compile Include="AppUtils\SysSmtpServer.cs" />
+    <Compile Include="CustomAttributes\AssociatedText.cs" />
+    <Compile Include="CustomAttributes\ItemId.cs" />
+    <Compile Include="CustomAttributes\ItemName.cs" />
+    <Compile Include="DataManipulation\DataAccess.cs" />
+    <Compile Include="DataManipulation\DatabaseEnum.cs" />
+    <Compile Include="DataManipulation\DBQuery.cs" />
+    <Compile Include="DataManipulation\ProcedureCall.cs" />
+    <Compile Include="DataManipulation\ProcedureParam.cs" />
+    <Compile Include="FileUtils\FileResource.cs" />
+    <Compile Include="FileUtils\PathFormat.cs" />
+    <Compile Include="FileUtils\TargetDirectory.cs" />
+    <Compile Include="JobExecution\IPeriodicTask.cs" />
+    <Compile Include="JobExecution\JobController.cs" />
+    <Compile Include="JobExecution\ServiceHandler.cs" />
+    <Compile Include="Parsing\ArgumentParser.cs" />
+    <Compile Include="Parsing\FieldParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\ArgumentBuilder.cs" />
+    <Compile Include="Reflection\ItemScaffolding.cs" />
+    <Compile Include="Reporting\DateRange.cs" />
+    <Compile Include="Reporting\NavigationPanel.cs" />
+    <Compile Include="Reporting\PageControl.cs" />
+    <Compile Include="Reporting\ReportCell.cs" />
+    <Compile Include="Reporting\ReportCellAlign.cs" />
+    <Compile Include="Reporting\ReportCellType.cs" />
+    <Compile Include="Reporting\ReportTable.cs" />
+    <Compile Include="Reporting\ReportTotalizer.cs" />
+    <Compile Include="WebUtils\ButtonTypeEnum.cs" />
+    <Compile Include="WebUtils\CSSHandler.cs" />
+    <Compile Include="WebUtils\DropDownScaffold.cs" />
+    <Compile Include="WebUtils\EditableList.cs" />
+    <Compile Include="WebUtils\EditableListButton.cs" />
+    <Compile Include="WebUtils\EmbedClientScript.cs" />
+    <Compile Include="WebUtils\SettingsInput.cs" />
+    <Compile Include="WebUtils\URLHandler.cs" />
+    <Compile Include="WebUtils\WarningMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

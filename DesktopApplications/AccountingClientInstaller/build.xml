@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project name="AccountingClientInstaller" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="rootDirectory" value="${env.CURRENT_DIR}/Build" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+    <property name="exeDirectory" value="${env.CURRENT_DIR}/Build/Program" />
+    <property name="outputDirectory" value="${env.CURRENT_DIR}/Build/Binaries" />
+    <property name="references" value="/reference:${classlibDirectory}\SharpZipLib.dll" />
+    <property name="resources" value="/resource:AccountingClientInstaller.MainForm.resources /resource:${classlibDirectory}\SharpZipLib.dll /resource:${rootDirectory}\ClientFiles.zip" />
+
+    <target name="main">
+        <copy file="${env.CURRENT_DIR}/Source/DotNet/Services/papercut-print-logger.binary" tofile="${rootDirectory}/papercut-print-logger.exe" />
+        <mkdir dir="${outputDirectory}/CopyLogs"/>
+        <mkdir dir="${outputDirectory}/PrintLogs"/>
+        <copy todir="${outputDirectory}">
+            <fileset dir="${classlibDirectory}">
+                <include name="DocMageFramework.*" />
+                <include name="AccountingLib.*" />
+                <include name="iTextSharp.*" />
+                <include name="MyXls.*" />
+                <include name="SharpSnmpLib.*" />
+            </fileset>
+        </copy>
+        <copy todir="${outputDirectory}">
+            <fileset dir="${exeDirectory}">
+                <include name="PrintInspector.exe" />
+                <include name="PrintLogRouter.exe" />
+                <include name="ServiceKicker.exe" />
+            </fileset>
+        </copy>
+        <zip zipfile="Temp.zip">
+            <fileset dir="${rootDirectory}" >
+                <include name="Binaries\**" />
+                <include name="papercut-print-logger.exe" />
+            </fileset>
+        </zip>
+        <move file="Temp.zip" tofile="${rootDirectory}/ClientFiles.zip" />
+        <delete dir="${outputDirectory}" />
+        <delete file="${rootDirectory}/papercut-print-logger.exe" />
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:winexe /out:${rootDirectory}/ClientSetup.exe ${references} ${resources} /recurse:*.cs " />
+        </exec>
+        <move file="${rootDirectory}/ClientFiles.zip" tofile="${rootDirectory}/DebugData/ClientFiles.zip" />
+    </target>
+</project>

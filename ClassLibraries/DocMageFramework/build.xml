@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<project name="DocMageFramework" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="rootDirectory" value="${env.CURRENT_DIR}/Build" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+
+    <target name="main">
+        <delete dir="${rootDirectory}" failonerror="false" />
+        <mkdir dir="${rootDirectory}"/>
+        <delete dir="${classlibDirectory}" failonerror="false" />
+        <mkdir dir="${classlibDirectory}"/>
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:library /out:${classlibDirectory}/DocMageFramework.dll /recurse:*.cs /debug" />
+        </exec>
+    </target>
+</project>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<project name="SharpSnmpLib" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+    <property name="source01" value="ByteTool.cs" />
+    <property name="source02" value="Counter32.cs" />
+    <property name="source03" value="Counter64.cs" />
+    <property name="source04" value="DataFactory.cs" />
+    <property name="source05" value="DefinitionType.cs" />
+    <property name="source06" value="EndOfMibView.cs" />
+    <property name="source07" value="ErrorCode.cs" />
+    <property name="source08" value="Gauge32.cs" />
+    <property name="source09" value="GenericCode.cs" />
+    <property name="source10" value="GetBulkRequestPdu.cs" />
+    <property name="source11" value="GetNextRequestPdu.cs" />
+    <property name="source12" value="GetRequestPdu.cs" />
+    <property name="source13" value="Header.cs" />
+    <property name="source14" value="IConstruct.cs" />
+    <property name="source15" value="IDefinition.cs" />
+    <property name="source16" value="IEntity.cs" />
+    <property name="source17" value="IModule.cs" />
+    <property name="source18" value="InformRequestPdu.cs" />
+    <property name="source19" value="Integer32.cs" />
+    <property name="source20" value="IObjectRegistry.cs" />
+    <property name="source21" value="IObjectTree.cs" />
+    <property name="source22" value="IP.cs" />
+    <property name="source23" value="ISegment.cs" />
+    <property name="source24" value="ISnmpData.cs" />
+    <property name="source25" value="ISnmpPdu.cs" />
+    <property name="source26" value="ITypeAssignment.cs" />
+    <property name="source27" value="Levels.cs" />
+    <property name="source28" value="MalformedPdu.cs" />
+    <property name="source29" value="Messaging\AgentFoundEventArgs.cs" />
+    <property name="source30" value="Messaging\Discoverer.cs" />
+    <property name="source31" value="Messaging\Discovery.cs" />
+    <property name="source32" value="Messaging\EndPointExtension.cs" />
+    <property name="source33" value="Messaging\ErrorException.cs" />
+    <property name="source34" value="Messaging\ExceptionRaisedEventArgs.cs" />
+    <property name="source35" value="Messaging\GetBulkRequestMessage.cs" />
+    <property name="source36" value="Messaging\GetNextRequestMessage.cs" />
+    <property name="source37" value="Messaging\GetRequestMessage.cs" />
+    <property name="source38" value="Messaging\IListenerBinding.cs" />
+    <property name="source39" value="Messaging\InformRequestMessage.cs" />
+    <property name="source40" value="Messaging\ISnmpMessage.cs" />
+    <property name="source41" value="Messaging\Listener.cs" />
+    <property name="source42" value="Messaging\ListenerBinding.cs" />
+    <property name="source43" value="Messaging\MalformedMessage.cs" />
+    <property name="source44" value="Messaging\Manager.cs" />
+    <property name="source45" value="Messaging\MessageFactory.cs" />
+    <property name="source46" value="Messaging\MessageFactoryException.cs" />
+    <property name="source47" value="Messaging\MessageParams.cs" />
+    <property name="source48" value="Messaging\MessageReceivedEventArgs.cs" />
+    <property name="source49" value="Messaging\Messenger.cs" />
+    <property name="source50" value="Messaging\NumberGenerator.cs" />
+    <property name="source51" value="Messaging\PortInUseException.cs" />
+    <property name="source52" value="Messaging\ReportMessage.cs" />
+    <property name="source53" value="Messaging\ResponseMessage.cs" />
+    <property name="source54" value="Messaging\SetRequestMessage.cs" />
+    <property name="source55" value="Messaging\SnmpMessageExtension.cs" />
+    <property name="source56" value="Messaging\TimeoutException.cs" />
+    <property name="source57" value="Messaging\TrapV1Message.cs" />
+    <property name="source58" value="Messaging\TrapV2Message.cs" />
+    <property name="source59" value="Messaging\WalkMode.cs" />
+    <property name="source60" value="NoSuchInstance.cs" />
+    <property name="source61" value="NoSuchObject.cs" />
+    <property name="source62" value="Null.cs" />
+    <property name="source63" value="ObjectIdentifier.cs" />
+    <property name="source64" value="ObjectIdentifierConverter.cs" />
+    <property name="source65" value="OctetString.cs" />
+    <property name="source66" value="Opaque.cs" />
+    <property name="source67" value	="OperationException.cs" />
+    <property name="source68" value	="Properties\AssemblyInfo.cs" />
+    <property name="source69" value	="ReportPdu.cs" />
+    <property name="source70" value	="ResponsePdu.cs" />
+    <property name="source71" value	="Scope.cs" />
+    <property name="source72" value	="SearchResult.cs" />
+    <property name="source73" value	="SecurityParameters.cs" />
+    <property name="source74" value	="Security\AESPrivacyProvider.cs" />
+    <property name="source75" value	="Security\AuthenticationProviderExtension.cs" />
+    <property name="source76" value	="Security\DecryptionException.cs" />
+    <property name="source77" value	="Security\DefaultAuthenticationProvider.cs" />
+    <property name="source78" value	="Security\DefaultPrivacyProvider.cs" />
+    <property name="source79" value	="Security\DESPrivacyProvider.cs" />
+    <property name="source80" value	="Security\IAuthenticationProvider.cs" />
+    <property name="source81" value	="Security\IPrivacyProvider.cs" />
+    <property name="source82" value	="Security\MD5AuthenticationProvider.cs" />
+    <property name="source83" value	="Security\PrivacyProviderExtension.cs" />
+    <property name="source84" value	="Security\SaltGenerator.cs" />
+    <property name="source85" value	="Security\SHA1AuthenticationProvider.cs" />
+    <property name="source86" value	="Security\User.cs" />
+    <property name="source87" value	="Security\UserRegistry.cs" />
+    <property name="source88" value	="Sequence.cs" />
+    <property name="source89" value	="SetRequestPdu.cs" />
+    <property name="source90" value	="SnmpDataExtension.cs" />
+    <property name="source91" value	="SnmpException.cs" />
+    <property name="source92" value	="SnmpType.cs" />
+    <property name="source93" value	="StreamExtension.cs" />
+    <property name="source94" value	="TimeTicks.cs" />
+    <property name="source95" value	="TrapV1Pdu.cs" />
+    <property name="source96" value	="TrapV2Pdu.cs" />
+    <property name="source97" value	="Variable.cs" />
+    <property name="source98" value	="VersionCode.cs" />
+
+    <property name="sourcesA" value="${source01} ${source02} ${source03} ${source04} ${source05} ${source06} ${source07} ${source08} ${source09} ${source10}" />
+    <property name="sourcesB" value="${source11} ${source12} ${source13} ${source14} ${source15} ${source16} ${source17} ${source18} ${source19} ${source20}" />
+    <property name="sourcesC" value="${source21} ${source22} ${source23} ${source24} ${source25} ${source26} ${source27} ${source28} ${source29} ${source30}" />
+    <property name="sourcesD" value="${source31} ${source32} ${source33} ${source34} ${source35} ${source36} ${source37} ${source38} ${source39} ${source40}" />
+    <property name="sourcesE" value="${source41} ${source42} ${source43} ${source44} ${source45} ${source46} ${source47} ${source48} ${source49} ${source50}" />
+    <property name="sourcesF" value="${source51} ${source52} ${source53} ${source54} ${source55} ${source56} ${source57} ${source58} ${source59} ${source60}" />
+    <property name="sourcesG" value="${source61} ${source62} ${source63} ${source64} ${source65} ${source66} ${source67} ${source68} ${source69} ${source70}" />
+    <property name="sourcesH" value="${source71} ${source72} ${source73} ${source74} ${source75} ${source76} ${source77} ${source78} ${source79} ${source80}" />
+    <property name="sourcesI" value="${source81} ${source82} ${source83} ${source84} ${source85} ${source86} ${source87} ${source88} ${source89} ${source90}" />
+    <property name="sourcesJ" value="${source91} ${source92} ${source93} ${source94} ${source95} ${source96} ${source97} ${source98} " />
+
+    <target name="main">
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:library /out:${classlibDirectory}/SharpSnmpLib.dll /recurse:${sourcesA} ${sourcesB} ${sourcesC} ${sourcesD} ${sourcesE} ${sourcesF} ${sourcesG} ${sourcesH} ${sourcesI} ${sourcesJ}" />
+        </exec>
+    </target>
+</project>

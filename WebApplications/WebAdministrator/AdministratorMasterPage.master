@@ -1,0 +1,26 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdministratorMasterPage.master.cs" Inherits="WebAdministrator.AdministratorMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Datacopy Trade</title>
+    <link href="StyleSheets/ContentStyles.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="mainForm" runat="server">
+    <asp:Panel ID="topMenu" runat="server" CssClass="topMenuStyle">
+        <img alt="Tools" src="images/Tools.png" width="100" height="100" />
+        <div style="width:320px; margin-left: auto; margin-right: auto; text-align:center">
+            <h1 class="appCaptionStyle">Administração</h1>
+        </div>
+        <div id="menuContainer" runat="server" style="width:650px; height: 35px">
+        </div>
+    </asp:Panel>
+    <asp:ContentPlaceHolder id="bodyPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

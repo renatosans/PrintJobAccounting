@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECCAD4C8-111B-413F-96B1-84B9E313B852}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AccountingLib</RootNamespace>
+    <AssemblyName>AccountingLib</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CostArrangement\CostBranch.cs" />
+    <Compile Include="CostArrangement\CostTree.cs" />
+    <Compile Include="CostArrangement\CostTreeBuilder.cs" />
+    <Compile Include="CostArrangement\CostTreePersistence.cs" />
+    <Compile Include="CostArrangement\CostTreeRenderer.cs" />
+    <Compile Include="CostArrangement\GroupPrintingCost.cs" />
+    <Compile Include="CostArrangement\PrintingCostsAssembler.cs" />
+    <Compile Include="DataAccessObjects\AdministratorLoginDAO.cs" />
+    <Compile Include="DataAccessObjects\ApplicationParamDAO.cs" />
+    <Compile Include="DataAccessObjects\CopiedDocumentDAO.cs" />
+    <Compile Include="DataAccessObjects\CostCenterAssociateDAO.cs" />
+    <Compile Include="DataAccessObjects\CostCenterDAO.cs" />
+    <Compile Include="DataAccessObjects\DeviceCopyingCostDAO.cs" />
+    <Compile Include="DataAccessObjects\DeviceCostDetailDAO.cs" />
+    <Compile Include="DataAccessObjects\DevicePrintingCostDAO.cs" />
+    <Compile Include="DataAccessObjects\DuplexPrintingCostDAO.cs" />
+    <Compile Include="DataAccessObjects\JobDataDependency.cs" />
+    <Compile Include="DataAccessObjects\LicenseDAO.cs" />
+    <Compile Include="DataAccessObjects\LoginDAO.cs" />
+    <Compile Include="DataAccessObjects\MailingDAO.cs" />
+    <Compile Include="DataAccessObjects\PreferenceDAO.cs" />
+    <Compile Include="DataAccessObjects\PrintedDocumentDAO.cs" />
+    <Compile Include="DataAccessObjects\PrinterDAO.cs" />
+    <Compile Include="DataAccessObjects\PrintingDeviceDAO.cs" />
+    <Compile Include="DataAccessObjects\SmtpServerDAO.cs" />
+    <Compile Include="DataAccessObjects\TenantDAO.cs" />
+    <Compile Include="DataAccessObjects\UserCopyingCostDAO.cs" />
+    <Compile Include="DataAccessObjects\UserCostDetailDAO.cs" />
+    <Compile Include="DataAccessObjects\UserDAO.cs" />
+    <Compile Include="DataAccessObjects\UserPrintingCostDAO.cs" />
+    <Compile Include="Entities\AdministratorLogin.cs" />
+    <Compile Include="Entities\ApplicationParam.cs" />
+    <Compile Include="Entities\CopiedDocument.cs" />
+    <Compile Include="Entities\CostCenter.cs" />
+    <Compile Include="Entities\CostCenterAssociate.cs" />
+    <Compile Include="Entities\DeviceCopyingCost.cs" />
+    <Compile Include="Entities\DeviceCostDetail.cs" />
+    <Compile Include="Entities\DevicePrintingCost.cs" />
+    <Compile Include="Entities\DuplexPrintingCost.cs" />
+    <Compile Include="Entities\License.cs" />
+    <Compile Include="Entities\Login.cs" />
+    <Compile Include="Entities\Mailing.cs" />
+    <Compile Include="Entities\PageCounter.cs" />
+    <Compile Include="Entities\Preference.cs" />
+    <Compile Include="Entities\PrintedDocument.cs" />
+    <Compile Include="Entities\Printer.cs" />
+    <Compile Include="Entities\PrintingDevice.cs" />
+    <Compile Include="Entities\SmtpServer.cs" />
+    <Compile Include="Entities\Tenant.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserCopyingCost.cs" />
+    <Compile Include="Entities\UserCostDetail.cs" />
+    <Compile Include="Entities\UserPrintingCost.cs" />
+    <Compile Include="Management\ExportFormatContext.cs" />
+    <Compile Include="Management\ExportFormatEnum.cs" />
+    <Compile Include="Management\LicenseKeyMaker.cs" />
+    <Compile Include="Management\PeriodDelimiterEnum.cs" />
+    <Compile Include="Management\RegistrationInfo.cs" />
+    <Compile Include="Management\TenantTransaction.cs" />
+    <Compile Include="Printers\DeviceHandler.cs" />
+    <Compile Include="Printers\PortHandler.cs" />
+    <Compile Include="Printers\PortTypeEnum.cs" />
+    <Compile Include="Printers\PrinterAttributesEnum.cs" />
+    <Compile Include="Printers\PrinterCapabilityEnum.cs" />
+    <Compile Include="Printers\PrinterPort.cs" />
+    <Compile Include="Printers\PrinterQueue.cs" />
+    <Compile Include="Printers\SysPrinter.cs" />
+    <Compile Include="PrintInspect\PrintInspectTask.cs" />
+    <Compile Include="PrintInspect\PrintJobContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportMailing\AbstractReport.cs" />
+    <Compile Include="ReportMailing\CopiedDocumentsReport.cs" />
+    <Compile Include="ReportMailing\CsvReportBuilder.cs" />
+    <Compile Include="ReportMailing\DeviceCopyingCostsReport.cs" />
+    <Compile Include="ReportMailing\DeviceCostDetailsReport.cs" />
+    <Compile Include="ReportMailing\DevicePrintingCostsReport.cs" />
+    <Compile Include="ReportMailing\DuplexPrintingCostsReport.cs" />
+    <Compile Include="ReportMailing\GroupCostDetailsReport.cs" />
+    <Compile Include="ReportMailing\GroupPrintingCostsReport.cs" />
+    <Compile Include="ReportMailing\HtmlReportBuilder.cs" />
+    <Compile Include="ReportMailing\PdfReportBuilder.cs" />
+    <Compile Include="ReportMailing\PrintedDocumentsReport.cs" />
+    <Compile Include="ReportMailing\QuotaExceededReport.cs" />
+    <Compile Include="ReportMailing\ReportContext.cs" />
+    <Compile Include="ReportMailing\ReportFrequencyEnum.cs" />
+    <Compile Include="ReportMailing\ReportMailingController.cs" />
+    <Compile Include="ReportMailing\ReportMailingTask.cs" />
+    <Compile Include="ReportMailing\ReportTypeEnum.cs" />
+    <Compile Include="ReportMailing\UserCopyingCostsReport.cs" />
+    <Compile Include="ReportMailing\UserCostDetailsReport.cs" />
+    <Compile Include="ReportMailing\UserPrintingCostsReport.cs" />
+    <Compile Include="ReportMailing\WebReportBuilder.cs" />
+    <Compile Include="ReportMailing\XlsReportBuilder.cs" />
+    <Compile Include="Reports\AbstractReport.cs" />
+    <Compile Include="Security\Authentication.cs" />
+    <Compile Include="Security\Authorization.cs" />
+    <Compile Include="Security\CredentialManager.cs" />
+    <Compile Include="Security\ILogin.cs" />
+    <Compile Include="Security\LoginValidator.cs" />
+    <Compile Include="Security\ResourceProtector.cs" />
+    <Compile Include="Security\UserGroupEnum.cs" />
+    <Compile Include="ServerCopyLog\CopyLogAccess.cs" />
+    <Compile Include="ServerCopyLog\CopyLogDevice.cs" />
+    <Compile Include="ServerCopyLog\CopyLogDeviceHandler.cs" />
+    <Compile Include="ServerCopyLog\CopyLogFile.cs" />
+    <Compile Include="ServerCopyLog\CopyLogImportController.cs" />
+    <Compile Include="ServerCopyLog\CopyLogPersistence.cs" />
+    <Compile Include="ServerCopyLog\CopyLogImportTask.cs" />
+    <Compile Include="ServerCopyLog\CopyLogSender.cs" />
+    <Compile Include="ServerPrintLog\JobRouter.cs" />
+    <Compile Include="ServerPrintLog\PrintLogAccess.cs" />
+    <Compile Include="ServerPrintLog\PrintLogContext.cs" />
+    <Compile Include="ServerPrintLog\PrintLogDigest.cs" />
+    <Compile Include="ServerPrintLog\PrintLogFile.cs" />
+    <Compile Include="ServerPrintLog\PrintLogImportController.cs" />
+    <Compile Include="ServerPrintLog\PrintLogPersistence.cs" />
+    <Compile Include="ServerPrintLog\PrintLogImportTask.cs" />
+    <Compile Include="ServerPrintLog\PrintLogRoutingTask.cs" />
+    <Compile Include="ServerPrintLog\PrintLogSender.cs" />
+    <Compile Include="ServerPrintLog\PrintLogSorter.cs" />
+    <Compile Include="ServerPrintLog\StopNotification.cs" />
+    <Compile Include="Spool\DevMode.cs" />
+    <Compile Include="Spool\EMF\EMFPage.cs" />
+    <Compile Include="Spool\EMF\EMFPageHeader.cs" />
+    <Compile Include="Spool\EMF\EMFRecord.cs" />
+    <Compile Include="Spool\EMF\EMFSpoolFile.cs" />
+    <Compile Include="Spool\EMF\SPLRecord.cs" />
+    <Compile Include="Spool\EMF\SPLRecordTypeEnum.cs" />
+    <Compile Include="Spool\JobNotification.cs" />
+    <Compile Include="Spool\JobNotificationTypeEnum.cs" />
+    <Compile Include="Spool\JobShadowFile.cs" />
+    <Compile Include="Spool\JobSpoolFile.cs" />
+    <Compile Include="Spool\JobStatusEnum.cs" />
+    <Compile Include="Spool\ManagedPrintJob.cs" />
+    <Compile Include="Spool\PaperSize.cs" />
+    <Compile Include="Spool\RAW\PCL6Page.cs" />
+    <Compile Include="Spool\RAW\PCL6SpoolFile.cs" />
+    <Compile Include="Spool\SHDFileFormatEnum.cs" />
+    <Compile Include="Spool\SpooledJob.cs" />
+    <Compile Include="Spool\SpoolMonitor.cs" />
+    <Compile Include="Spool\StringResource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocMageFramework\DocMageFramework.csproj">
+      <Project>{A0EE3595-4557-407C-81A8-59271DA8F49D}</Project>
+      <Name>DocMageFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTextSharp\itextsharp.csproj">
+      <Project>{84C4FDD9-3ED7-453B-B9DA-B3ED52CB071C}</Project>
+      <Name>itextsharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyXls\MyXls.csproj">
+      <Project>{38C03298-9CB0-4B20-8764-A7025819D9BB}</Project>
+      <Name>MyXls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

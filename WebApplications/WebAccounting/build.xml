@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<project name="WebAccounting" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+    <property name="webappDirectory" value="${env.CURRENT_DIR}/Build/WebFrontend/WebAccounting" />
+    <property name="references" value="/r:${classlibDirectory}\DocMageFramework.dll /r:${classlibDirectory}\AccountingLib.dll" />
+
+    <target name="main">
+        <delete dir="${webappDirectory}" failonerror="false" />
+        <mkdir dir="${webappDirectory}"/>
+        <mkdir dir="${webappDirectory}/App_Data"/>
+        <mkdir dir="${webappDirectory}/bin"/>
+        <mkdir dir="${webappDirectory}/Images"/>
+        <mkdir dir="${webappDirectory}/Scripts"/>
+        <mkdir dir="${webappDirectory}/StyleSheets"/>
+		<mkdir dir="${webappDirectory}/Client"/>
+        <copy todir="${webappDirectory}">
+            <fileset dir=".">
+                <include name="*.master" />
+                <include name="*.aspx" />
+                <include name="*.config" />
+            </fileset>
+        </copy>
+        <copy todir="${webappDirectory}/App_Data">
+            <fileset dir="App_Data">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${webappDirectory}/bin">
+            <fileset dir="${classlibDirectory}">
+                <include name="DocMageFramework.*" />
+                <include name="AccountingLib.*" />
+                <include name="MyXls.*" />
+                <include name="iTextSharp.*" />
+            </fileset>
+        </copy>
+        <copy todir="${webappDirectory}/Images">
+            <fileset dir="Images">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${webappDirectory}/Scripts">
+            <fileset dir="Scripts">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${webappDirectory}/StyleSheets">
+            <fileset dir="StyleSheets">
+                <include name="*.*" />
+            </fileset>
+        </copy>
+        <copy todir="${webappDirectory}/Client">
+            <fileset dir="${env.CURRENT_DIR}/Build">
+                <include name="ClientSetup.exe" />
+            </fileset>
+        </copy>
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:library /out:${webappDirectory}/bin/WebAccounting.dll ${references} /recurse:*.cs /debug" />
+        </exec>
+    </target>
+</project>

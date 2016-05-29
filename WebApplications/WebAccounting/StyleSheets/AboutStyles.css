@@ -1,0 +1,38 @@
+﻿body
+{
+	background: #88B7E1;
+	font-family: "trebuchet ms", sans-serif;
+	font-size: 14px;		
+}
+div#background
+{
+	width: 500px;
+	height: 250px;
+	background: #88B7E1;
+	border: 0px solid black;  
+}
+div#transbox
+{
+	width: 400px;
+	height: 180px;
+	margin: 30px 50px;
+	background-color: #FFFFFF;
+	border: 1px solid black;
+	/* for IE */
+	filter:alpha(opacity=80);
+	/* CSS3 standard */
+	opacity:0.8;
+	/* for Mozilla */
+	-moz-opacity:0.8;
+}				
+div#transbox p
+{
+	margin: 30px 40px;
+	font-weight: bold;
+	color: #0000FF;
+}  
+div#transbox caption
+{
+	color: #0000FF;
+	text-decoration: underline;
+}  

@@ -1,0 +1,55 @@
+﻿.controlAreaStyle
+{
+	position: absolute;
+	left:500;
+	top:500;
+}
+.loginBoxStyle
+{
+	border: 2px solid #333333;
+	background-color: #838B8B;
+}
+.buttonStyle
+{
+    width: 120px;
+    height: 26px;
+}
+.glyphButtonStyle
+{
+    width: 30px;
+    height: 30px;
+}
+.errorMessagesStyle
+{
+	font-family: "Times New Roman";
+	font-weight: bold;
+	color: red;
+	font-size: medium;
+}
+Html, Body
+{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #F2EFDF;
+}
+#horizont {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    overflow: visible;
+    visibility: visible;
+    display: block;
+}
+#loginArea {
+    position: absolute;
+    margin-left: -190px;  /* metade da largura da div */
+    top: -120px; /* metade da altura da div */
+    left: 50%;
+    width: 380px;
+    height: 240px;
+    visibility: visible;
+}

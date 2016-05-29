@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="iTextSharp" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+    <property name="resource01" value="/resource:Resources\iTextSharp.text.pdf.fonts.Courier-Bold.afm" />
+    <property name="resource02" value="/resource:Resources\iTextSharp.text.pdf.fonts.Courier-BoldOblique.afm" />
+    <property name="resource03" value="/resource:Resources\iTextSharp.text.pdf.fonts.Courier-Oblique.afm" />
+    <property name="resource04" value="/resource:Resources\iTextSharp.text.pdf.fonts.Courier.afm" />
+    <property name="resource05" value="/resource:Resources\iTextSharp.text.pdf.fonts.glyphlist.txt" />
+    <property name="resource06" value="/resource:Resources\iTextSharp.text.pdf.fonts.Helvetica-Bold.afm" />
+    <property name="resource07" value="/resource:Resources\iTextSharp.text.pdf.fonts.Helvetica-BoldOblique.afm" />
+    <property name="resource08" value="/resource:Resources\iTextSharp.text.pdf.fonts.Helvetica-Oblique.afm" />
+    <property name="resource09" value="/resource:Resources\iTextSharp.text.pdf.fonts.Helvetica.afm" />
+    <property name="resource10" value="/resource:Resources\iTextSharp.text.pdf.fonts.Symbol.afm" />
+    <property name="resource11" value="/resource:Resources\iTextSharp.text.pdf.fonts.Times-Bold.afm" />
+    <property name="resource12" value="/resource:Resources\iTextSharp.text.pdf.fonts.Times-BoldItalic.afm" />
+    <property name="resource13" value="/resource:Resources\iTextSharp.text.pdf.fonts.Times-Italic.afm" />
+    <property name="resource14" value="/resource:Resources\iTextSharp.text.pdf.fonts.Times-Roman.afm" />
+    <property name="resource15" value="/resource:Resources\iTextSharp.text.pdf.fonts.ZapfDingbats.afm" />
+    <property name="resources" value="${resource01} ${resource02} ${resource03} ${resource04} ${resource05} ${resource06} ${resource07} ${resource08} ${resource09} ${resource10} ${resource11} ${resource12} ${resource13} ${resource14} ${resource15}" />
+
+    <target name="main">
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:library /out:${classlibDirectory}/iTextSharp.dll ${resources} /recurse:*.cs " />
+        </exec>
+    </target>
+</project>

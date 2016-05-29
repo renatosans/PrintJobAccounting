@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SettingsMasterPage.master.cs" Inherits="WebAccounting.SettingsMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="pt-br" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <title>Datacopy Trade</title>
+    <link href="StyleSheets/HeaderStyles.css" rel="stylesheet" type="text/css" />
+    <link href="StyleSheets/BodyStyles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/AppUtils.js"></script>
+    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="mainForm" runat="server">
+    <asp:Panel ID="headerTop" runat="server" CssClass="headerTopStyle">
+        <br/>
+        <br/>
+        <asp:Panel ID="headerBottom" runat="server" align="center" CssClass="headerBottomStyle">
+            <asp:Panel ID="logo" runat="server" CssClass="logoStyle">
+                <img alt="Datacopy Trade" src="Images/Logo.png" width="250" height="80" />
+            </asp:Panel>
+            <br/>
+        </asp:Panel>
+    </asp:Panel>
+    <asp:ContentPlaceHolder id="bodyPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

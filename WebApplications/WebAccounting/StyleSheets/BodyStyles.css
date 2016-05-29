@@ -1,0 +1,95 @@
+.titleStyle
+{
+	font-family: Arial;
+	font-size: large;
+	font-weight: bold;
+	color: #CCCCCC;
+}
+.pageInfoStyle
+{
+	font-family: Arial;
+	font-size: medium;
+	font-weight: bold;
+	color: #CCCCCC;
+}
+.errorMessagesStyle
+{
+	font-family: "Times New Roman";
+	font-weight: bold;
+	color: red;
+	font-size: medium;
+}
+.columnNameStyle
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: white;
+}
+.paramStyle
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: lime;
+}
+.itemStyle
+{
+	font-family: "Times New Roman";
+	font-weight: bold;
+	color: blue;
+}
+.selectedItemStyle
+{
+	font-family: "Times New Roman";
+	font-weight: bold;
+	color: blue;
+	background-color: #CCCCCC;
+}
+body
+{
+	padding: 0;
+	margin: 0;
+	background-color: #6080D5;
+}
+a
+{
+    outline: none;
+    text-decoration: none;
+    color: #00CC99;
+}
+
+@media screen
+{
+    .buttonStyle
+    {
+        width: 120px;
+        height: 26px;
+    }
+    .glyphButtonStyle
+    {
+        width: 30px;
+        height: 30px;
+    }
+    .reportFilterStyle
+    {
+	    border: 2px solid #333333;
+	    background-color: #99CCFF;
+	    width: 100%;
+	    height: 100%;
+    }
+}
+
+@media print
+{
+    .buttonStyle
+    {
+        display: none;
+    }
+    .glyphButtonStyle
+    {
+        display: none;
+    }
+    .reportFilterStyle
+    {
+        display: none;
+    }
+}

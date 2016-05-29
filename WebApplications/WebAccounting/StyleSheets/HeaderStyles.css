@@ -1,0 +1,92 @@
+
+@media screen
+{
+    .headerTopStyle
+    {
+	    width: 100%;
+	    background-image: url('../Images/HeaderTopBackground.gif');
+	    background-repeat: repeat-x;
+    }
+    .headerBottomStyle
+    {
+	    background-image: url('../Images/HeaderBottomBackground.gif');
+	    background-position: bottom;
+	    background-repeat: repeat-x;
+	    background-color: #FFFFFF;
+    }
+    .logoStyle
+    {
+	    width: 90%;
+	    height: 80px;
+	    margin-left: 50px;
+	    margin-right: auto;
+    }
+    .loginInfoStyle
+    {
+	    color: Gray;
+	    width: 70%;
+	    margin-left: auto;
+	    margin-right: 0;
+    }
+    .menuStyle
+    {
+	    width: 600px;
+	    height: 42px;
+	    margin-left: 50px;
+	    margin-right: auto;	
+    }
+    .menuListStyle
+    {
+	    width: 600px;
+	    height: 42px;
+	    margin: 0;
+        font-family: "MS Sans Serif";
+        font-size: small;
+        font-weight: bold;
+        text-align: center;
+        line-height: 48px;
+        list-style: none;
+        float: left;
+    }
+    .menuItemStyle
+    {
+	    margin: 0;
+	    background-image: url('../Images/MenuItemBackground.gif');
+	    background-repeat: repeat-x;
+	    color: #3333FF;
+    }
+    .menuItemStyle:hover
+    {
+	    margin: 0;
+        background-image: url('../Images/MenuItemHoverBackground.gif');
+        background-repeat: repeat-x;
+        color: #FF0000;
+    }
+}
+
+@media print
+{
+    .headerTopStyle
+    {
+        background-color: White;
+    }
+    .headerBottomStyle
+    {
+        background-color: White;
+    }
+    .logoStyle
+    {
+	    width: 90%;
+	    height: 80px;
+	    margin-left: 50px;
+	    margin-right: auto;
+    }
+    .loginInfoStyle
+    {
+        display: none;
+    }
+    .menuStyle
+    {
+        display: none;
+    }
+}

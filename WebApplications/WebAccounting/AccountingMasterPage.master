@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AccountingMasterPage.master.cs" Inherits="WebAccounting.AccountingMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="pt-br" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <title>Datacopy Trade</title>
+    <link href="StyleSheets/HeaderStyles.css" rel="stylesheet" type="text/css" />
+    <link href="StyleSheets/BodyStyles.css" rel="stylesheet" type="text/css" />
+    <link href="StyleSheets/DropDownMenuStyles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/AppUtils.js"></script>
+    <script type="text/javascript" src="Scripts/DropDownMenu.js"></script>
+    
+    <script language="javascript" type="text/javascript">
+        var printReportList = { divclass: 'anylinkmenu', inlinestyle: '', linktarget: '' }
+        printReportList.items = [
+        	["Usuários", "UserPrintingCosts.aspx"],
+        	["Grupos/Centros de custo", "GroupPrintingCosts.aspx"],
+        	["Equipamentos", "DevicePrintingCosts.aspx"],
+        	["Duplex", "DuplexPrintingCosts.aspx"],
+        	["Cotas excedidas", "QuotaExceeded.aspx"],
+        	["Detalhado", "PrintedDocuments.aspx"]
+        ]
+
+        var copyReportList = { divclass: 'anylinkmenu', inlinestyle: '', linktarget: '' }
+        copyReportList.items = [
+        	["Usuários", "UserCopyingCosts.aspx"],
+        	["Equipamentos", "DeviceCopyingCosts.aspx"],
+        	["Detalhado", "CopiedDocuments.aspx"]
+        ]
+
+        var configList = { divclass: 'anylinkmenu', inlinestyle: '', linktarget: '' }
+        configList.items = [
+        	["Preferências", "ConfigPreferences.aspx"],
+        	["Usuários", "ConfigUsers.aspx"],
+        	["Impressoras", "ConfigPrinters.aspx"],
+        	["Servidores SMTP", "ConfigSmtpServers.aspx"],
+        	["Mailing", "ConfigMailing.aspx"],
+        	["Centros de Custo", "ConfigCostCenters.aspx"],
+        	["Acesso ao sistema", "ConfigLogins.aspx"]
+        ]
+
+        var systemToolList = { divclass: 'anylinkmenu', inlinestyle: '', linktarget: '' }
+        systemToolList.items = [
+            ["Contadores", "PageCounters.aspx"],
+            ["Licenças de uso", "Licenses.aspx"],
+        	["Logout", "LoginPage.aspx?action=0"],
+        	["Sobre", "javascript:AboutButtonClick();"]
+        ]
+
+        anylinkmenu.init("dropDownMenuStyle")
+
+        function AboutButtonClick() {
+            window.open('About.aspx', 'Sobre', 'width=525,height=280');
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="mainForm" runat="server">
+    <asp:Panel ID="headerTop" runat="server" CssClass="headerTopStyle">
+        <br/>
+        <br/>
+        <asp:Panel ID="headerBottom" runat="server" CssClass="headerBottomStyle">
+            <asp:Panel ID="logo" runat="server" CssClass="logoStyle">
+                <img alt="Datacopy Trade" src="images/logo.png" width="250" height="80" />
+            </asp:Panel>
+            <asp:Panel ID="loginInfo" runat="server" CssClass="loginInfoStyle">
+                <asp:Table runat="server" Width="100%">
+                    <asp:TableRow>
+                        <asp:TableCell ID="welcomeCell" runat="server" HorizontalAlign="Left">
+                            <asp:Label ID="lblWelcome" runat="server" >Bem vindo(a), usuário</asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell ID="logoutCell" runat="server" HorizontalAlign="Right">
+                            <asp:hyperlink ID="lnkLogout" runat="server" NavigateUrl="LoginPage.aspx?action=0" >Logout</asp:hyperlink>
+                            &nbsp;&nbsp;&nbsp;
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+            </asp:Panel>
+            <asp:Panel ID="topMenu" runat="server" CssClass="menuStyle">
+            <ul class="menuListStyle">
+                <li style="float: left"><asp:HyperLink ID="PrintReportsButton" runat="server" Text="Impressões" NavigateUrl="javascript:return false" Width="150px" Height="42px" CssClass="dropDownMenuStyle menuItemStyle" rel="printReportList"></asp:HyperLink></li>
+                <li style="float: left"><asp:HyperLink ID="CopyReportsButton" runat="server" Text="Cópias" NavigateUrl="javascript:return false" Width="150px" Height="42px" CssClass="dropDownMenuStyle menuItemStyle" rel="copyReportList"></asp:HyperLink></li>
+                <li style="float: left"><asp:HyperLink ID="ConfigButton" runat="server" Text="Configurar" NavigateUrl="javascript:return false" Width="150px" Height="42px" CssClass="dropDownMenuStyle menuItemStyle" rel="configList"></asp:HyperLink></li>
+                <li style="float: left"><asp:HyperLink ID="SystemToolsButton" runat="server" Text="Sistema" NavigateUrl="javascript:return false" Width="150px" Height="42px" CssClass="dropDownMenuStyle menuItemStyle" rel="systemToolList"></asp:HyperLink></li>
+            </ul>
+            </asp:Panel>
+        </asp:Panel>
+    </asp:Panel>
+    <asp:ContentPlaceHolder id="bodyPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

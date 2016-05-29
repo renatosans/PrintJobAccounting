@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<jobrouting>
+    <url>http://localhost/Datacount/JobRoutingService.aspx</url>
+    <tenantid>4</tenantid>
+    <interval>599000</interval>
+    <logdirectories>C:\Program Files\PrintLogger\logs\csv\daily</logdirectories>
+    <installationkey>4D8A3DA34D598F431029A1185015D4E2</installationkey>
+    <xmlhash>DA2962F91AC1F7A29C2EC3D20922DC49</xmlhash>
+</jobrouting>

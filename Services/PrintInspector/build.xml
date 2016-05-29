@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project name="PrintInspector" default="main">
+    <property environment="env" />
+    <property name="compiler" value="${env.TARGET_FRAMEWORK}/csc.exe" />
+    <property name="classlibDirectory" value="${env.CURRENT_DIR}/Build/ClassLib" />
+    <property name="exeDirectory" value="${env.CURRENT_DIR}/Build/Program" />
+    <property name="references" value="/r:${classlibDirectory}\DocMageFramework.dll /r:${classlibDirectory}\AccountingLib.dll" />
+
+    <target name="main">
+        <exec executable="${compiler}" failonerror="true">
+            <arg line="/target:winexe /out:${exeDirectory}/PrintInspector.exe ${references} /recurse:*.cs " />
+        </exec>
+    </target>
+</project>
