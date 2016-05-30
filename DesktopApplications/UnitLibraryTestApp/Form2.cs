@@ -142,7 +142,8 @@ namespace UnitLibraryTestApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-            // not implemented yet    EXCEL MyXLS
+            // not implemented yet
+            // XlsDocument doc = new org.in2bits.MyXls.XlsDocument();
         }
 
         public void NotifyObject(Object obj)
