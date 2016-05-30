@@ -193,3 +193,5 @@ namespace UnitLibraryTestApp
 
 //  http://www.infoq.com/presentations/10-Ways-to-Better-Code-Neal-Ford
 //  http://msdn.microsoft.com/en-us/library/cc168615.aspx
+//  https://code.visualstudio.com/docs/editor/tasks
+
