@@ -28,7 +28,7 @@
         </exec>
         <move file="ScriptFiles.xml" tofile="${scriptsDirectory}/ScriptFiles.xml" />
         <copy todir="${scriptsDirectory}">
-            <fileset dir="${env.CURRENT_DIR}/Source/Scripts">
+            <fileset dir="${env.CURRENT_DIR}/DatabaseScripts">
                 <include name="ExecutionOrder.txt" />
             </fileset>
         </copy>
