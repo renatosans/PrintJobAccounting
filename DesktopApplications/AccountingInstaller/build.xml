@@ -19,7 +19,7 @@
             <arg line="/target:winexe /out:${exeDirectory}/ServerSetup_util.exe /reference:${classlibDirectory}\SharpZipLib.dll /recurse:*.cs " />
         </exec>
         <copy todir="${rootDirectory}/Scripts">
-            <fileset dir="${env.CURRENT_DIR}/Source/Scripts">
+            <fileset dir="${env.CURRENT_DIR}/Source/DatabaseScripts">
                 <include name="**\*.sql" />
             </fileset>
         </copy>
