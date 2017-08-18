@@ -19,7 +19,7 @@
             <arg line="/target:winexe /out:${exeDirectory}/ServerSetup_util.exe /reference:${classlibDirectory}\SharpZipLib.dll /recurse:*.cs " />
         </exec>
         <copy todir="${rootDirectory}/Scripts">
-            <fileset dir="${env.CURRENT_DIR}/Source/Scripts">
+            <fileset dir="${env.CURRENT_DIR}/DatabaseScripts">
                 <include name="**\*.sql" />
             </fileset>
         </copy>
@@ -28,7 +28,7 @@
         </exec>
         <move file="ScriptFiles.xml" tofile="${scriptsDirectory}/ScriptFiles.xml" />
         <copy todir="${scriptsDirectory}">
-            <fileset dir="${env.CURRENT_DIR}/Source/Scripts">
+            <fileset dir="${env.CURRENT_DIR}/DatabaseScripts">
                 <include name="ExecutionOrder.txt" />
             </fileset>
         </copy>

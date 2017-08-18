@@ -10,7 +10,7 @@
     <property name="resources" value="/resource:AccountingClientInstaller.MainForm.resources /resource:${classlibDirectory}\SharpZipLib.dll /resource:${rootDirectory}\ClientFiles.zip" />
 
     <target name="main">
-        <copy file="${env.CURRENT_DIR}/Source/DotNet/Services/papercut-print-logger.binary" tofile="${rootDirectory}/papercut-print-logger.exe" />
+        <copy file="${env.CURRENT_DIR}/Services/papercut-print-logger.binary" tofile="${rootDirectory}/papercut-print-logger.exe" />
         <mkdir dir="${outputDirectory}/CopyLogs"/>
         <mkdir dir="${outputDirectory}/PrintLogs"/>
         <copy todir="${outputDirectory}">
