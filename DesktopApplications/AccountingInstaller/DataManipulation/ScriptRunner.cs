@@ -36,14 +36,13 @@ namespace AccountingInstaller.DataManipulation
             String[] subQueries = query.Split(new String[] { "GO\r\n", "Go\r\n", "go\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             foreach (String subQuery in subQueries)
             {
-                String fixedQuery = subQuery;
-                foreach(String dbName in databaseNames)
+                foreach (String dbName in databaseNames)
                 {
-                    if (fixedQuery.Contains("USE " + dbName))
+                    if (subQuery.Contains("USE " + dbName))
                         sqlConnection.ChangeDatabase(dbName);
                 }
 
-                DBQuery dbQuery = new DBQuery(fixedQuery, sqlConnection);
+                DBQuery dbQuery = new DBQuery(subQuery, sqlConnection);
                 dbQuery.Execute(false);
             }
         }
