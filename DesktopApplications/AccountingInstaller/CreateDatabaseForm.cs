@@ -147,7 +147,7 @@ namespace AccountingInstaller
             txtProcessInfo.Text += Environment.NewLine + "Executando scripts no DB...";
             const String executionFail = "Falha ao executar scripts no servidor banco de dados. ";
 
-            ScriptRunner scriptRunner = new ScriptRunner("Accounting", sqlConnection);
+            ScriptRunner scriptRunner = new ScriptRunner(new String[] { "Accounting" , "AppCommon" }, sqlConnection);
             try
             {
                 scriptRunner.RunAll(installationFilesDirectory + "DatabaseScripts", this);

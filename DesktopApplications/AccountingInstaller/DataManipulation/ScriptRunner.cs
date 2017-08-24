@@ -9,7 +9,7 @@ namespace AccountingInstaller.DataManipulation
 {
     public class ScriptRunner
     {
-        private String databaseName;
+        private String[] databaseNames;
 
         private SqlConnection sqlConnection;
 
@@ -22,23 +22,26 @@ namespace AccountingInstaller.DataManipulation
         private int scriptsExecuted;
 
 
-        public ScriptRunner(String databaseName, SqlConnection sqlConnection)
+        public ScriptRunner(String[] databaseNames, SqlConnection sqlConnection)
         {
-            this.databaseName = databaseName;
+            this.databaseNames = databaseNames;
             this.sqlConnection = sqlConnection;
             this.containerHandler = new ContainerHandler();
         }
 
 
-        private void ExecuteQuery(String query, Boolean replaceTargetDatabase)
+        private void ExecuteQuery(String query)
         {
             // Separa a query em partes, executa cada parte separadamente ( comando "GO" )
             String[] subQueries = query.Split(new String[] { "GO\r\n", "Go\r\n", "go\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             foreach (String subQuery in subQueries)
             {
                 String fixedQuery = subQuery;
-                if (replaceTargetDatabase && fixedQuery.Contains("[targetDatabase]"))
-                    fixedQuery = fixedQuery.Replace("[targetDatabase]", databaseName);
+                foreach(String dbName in databaseNames)
+                {
+                    if (fixedQuery.Contains("USE " + dbName))
+                        sqlConnection.ChangeDatabase(dbName);
+                }
 
                 DBQuery dbQuery = new DBQuery(fixedQuery, sqlConnection);
                 dbQuery.Execute(false);
@@ -70,7 +73,7 @@ namespace AccountingInstaller.DataManipulation
                 if (file == null)
                     throw new Exception("Script não encontrado no XML: " + script);
 
-                ExecuteQuery(file.fileContent, true);
+                ExecuteQuery(file.fileContent);
                 scriptsExecuted++;
                 progressMeter.IncreaseProgress(1);
             }
