@@ -22,7 +22,7 @@ namespace AccountingInstaller.DataManipulation
         private int scriptsExecuted;
 
 
-        public ScriptRunner(String[] databaseNames, SqlConnection sqlConnection)
+        public ScriptRunner(String[] databaseNames, SqlConnection sqlConnection, IListener listener)
         {
             this.databaseNames = databaseNames;
             this.sqlConnection = sqlConnection;
@@ -38,6 +38,7 @@ namespace AccountingInstaller.DataManipulation
             {
                 foreach (String dbName in databaseNames)
                 {
+                    sqlConnection.Database;
                     if (subQuery.Contains("USE " + dbName))
                         sqlConnection.ChangeDatabase(dbName);
                 }

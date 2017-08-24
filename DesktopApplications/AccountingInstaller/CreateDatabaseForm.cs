@@ -147,7 +147,7 @@ namespace AccountingInstaller
             txtProcessInfo.Text += Environment.NewLine + "Executando scripts no DB...";
             const String executionFail = "Falha ao executar scripts no servidor banco de dados. ";
 
-            ScriptRunner scriptRunner = new ScriptRunner(new String[] { "Accounting" , "AppCommon" }, sqlConnection);
+            ScriptRunner scriptRunner = new ScriptRunner(new String[] { "Accounting" , "AppCommon" }, sqlConnection, this);
             try
             {
                 scriptRunner.RunAll(installationFilesDirectory + "DatabaseScripts", this);
@@ -178,6 +178,10 @@ namespace AccountingInstaller
             {
                 txtSALogin.Text = "Login(username:" + ((DBLogin)obj).username + ", password: *****)";
                 txtSALogin.Tag = obj;
+            }
+            if (obj is String)
+            {
+                txtProcessInfo.Text += Environment.NewLine + obj;
             }
         }
 
