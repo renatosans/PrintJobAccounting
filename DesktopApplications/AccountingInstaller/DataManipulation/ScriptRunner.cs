@@ -44,7 +44,7 @@ namespace AccountingInstaller.DataManipulation
                 {
                     if (subQuery.Contains("USE " + dbName))
                     {
-                        fixedQuery = "-- " + fixedQuery; // Comenta a query para evitar erros no Azure
+                        fixedQuery = fixedQuery.Replace("USE", "-- USE"); // Comenta a query para evitar erros no Azure
                         sqlConnection.ChangeDatabase(dbName); // Muda o database na conexão para evitar erros no Azure
                         listener.NotifyObject("connection.ChangeDatabase()  Database alterado para -> " + sqlConnection.Database);
                     }
