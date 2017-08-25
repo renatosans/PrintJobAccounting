@@ -44,7 +44,7 @@ namespace AccountingInstaller.DataManipulation
                     if (subQuery.Contains("USE " + dbName))
                     {
                         sqlConnection.ChangeDatabase(dbName);
-                        listener.NotifyObject("Database alterado para: " + dbName);
+                        listener.NotifyObject("Database alterado para: " + sqlConnection.Database);
                     }
                 }
 
@@ -56,7 +56,8 @@ namespace AccountingInstaller.DataManipulation
 
         public void RunAll(String scriptsDirectory, IProgressListener progressListener)
         {
-            listener.NotifyObject("Origem(dir): " + scriptsDirectory + "Destino(database): " + sqlConnection.Database);
+            listener.NotifyObject("Origem(caminho): " + scriptsDirectory);
+            listener.NotifyObject("Destino(database): " + sqlConnection.Database);
 
             String path = PathFormat.Adjust(scriptsDirectory);
             List<String> scriptList = new List<String>();
