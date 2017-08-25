@@ -37,7 +37,6 @@ namespace AccountingInstaller
 
         private Boolean OpenConnection()
         {
-            txtProcessInfo.Text += Environment.NewLine + "Abrindo conexão com o banco...";
             const String connectionFail = "Falha ao abrir conexão com o banco. ";
 
             if (String.IsNullOrEmpty(server))

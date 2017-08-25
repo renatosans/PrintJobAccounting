@@ -39,16 +39,18 @@ namespace AccountingInstaller.DataManipulation
             String[] subQueries = query.Split(new String[] { "GO\r\n", "Go\r\n", "go\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             foreach (String subQuery in subQueries)
             {
+                String fixedQuery = subQuery;
                 foreach (String dbName in databaseNames)
                 {
                     if (subQuery.Contains("USE " + dbName))
                     {
-                        sqlConnection.ChangeDatabase(dbName);
-                        listener.NotifyObject("Database alterado para: " + sqlConnection.Database);
+                        fixedQuery = "-- " + fixedQuery; // Comenta a query para evitar erros no Azure
+                        sqlConnection.ChangeDatabase(dbName); // Muda o database na conexão para evitar erros no Azure
+                        listener.NotifyObject("connection.ChangeDatabase()  Database alterado para -> " + sqlConnection.Database);
                     }
                 }
 
-                DBQuery dbQuery = new DBQuery(subQuery, sqlConnection);
+                DBQuery dbQuery = new DBQuery(fixedQuery, sqlConnection);
                 dbQuery.Execute(false);
             }
         }
