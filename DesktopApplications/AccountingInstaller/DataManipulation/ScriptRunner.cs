@@ -13,6 +13,8 @@ namespace AccountingInstaller.DataManipulation
 
         private SqlConnection sqlConnection;
 
+        private IListener listener;
+
         private ContainerHandler containerHandler;
 
         private ProgressMeter progressMeter;
@@ -26,6 +28,7 @@ namespace AccountingInstaller.DataManipulation
         {
             this.databaseNames = databaseNames;
             this.sqlConnection = sqlConnection;
+            this.listener = listener;
             this.containerHandler = new ContainerHandler();
         }
 
@@ -38,9 +41,11 @@ namespace AccountingInstaller.DataManipulation
             {
                 foreach (String dbName in databaseNames)
                 {
-                    sqlConnection.Database;
                     if (subQuery.Contains("USE " + dbName))
+                    {
                         sqlConnection.ChangeDatabase(dbName);
+                        listener.NotifyObject("Database alterado para: " + dbName);
+                    }
                 }
 
                 DBQuery dbQuery = new DBQuery(subQuery, sqlConnection);
@@ -51,6 +56,8 @@ namespace AccountingInstaller.DataManipulation
 
         public void RunAll(String scriptsDirectory, IProgressListener progressListener)
         {
+            listener.NotifyObject("Origem(dir): " + scriptsDirectory + "Destino(database): " + sqlConnection.Database);
+
             String path = PathFormat.Adjust(scriptsDirectory);
             List<String> scriptList = new List<String>();
 
