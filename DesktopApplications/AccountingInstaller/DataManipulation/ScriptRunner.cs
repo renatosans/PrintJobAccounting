@@ -41,8 +41,10 @@ namespace AccountingInstaller.DataManipulation
                 {
                     fixedQuery = fixedQuery.Replace("USE", "-- USE"); // Comenta a query para evitar erros no Azure
                     String dbName = subQuery.Replace("USE", "").Trim();
+                    sqlConnection.Close();
                     sqlConnection.ChangeDatabase(dbName); // Muda o database na conexão para evitar erros no Azure
                     listener.NotifyObject("connection.ChangeDatabase()  Database alterado para -> " + sqlConnection.Database);
+                    sqlConnection.Open();
                 }
 
                 DBQuery dbQuery = new DBQuery(fixedQuery, sqlConnection);
