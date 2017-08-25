@@ -9,8 +9,6 @@ namespace AccountingInstaller.DataManipulation
 {
     public class ScriptRunner
     {
-        private String[] databaseNames;
-
         private SqlConnection sqlConnection;
 
         private IListener listener;
@@ -24,9 +22,8 @@ namespace AccountingInstaller.DataManipulation
         private int scriptsExecuted;
 
 
-        public ScriptRunner(String[] databaseNames, SqlConnection sqlConnection, IListener listener)
+        public ScriptRunner(SqlConnection sqlConnection, IListener listener)
         {
-            this.databaseNames = databaseNames;
             this.sqlConnection = sqlConnection;
             this.listener = listener;
             this.containerHandler = new ContainerHandler();
@@ -40,14 +37,12 @@ namespace AccountingInstaller.DataManipulation
             foreach (String subQuery in subQueries)
             {
                 String fixedQuery = subQuery;
-                foreach (String dbName in databaseNames)
+                if (subQuery.Contains("USE"))
                 {
-                    if (subQuery.Contains("USE " + dbName))
-                    {
-                        fixedQuery = fixedQuery.Replace("USE", "-- USE"); // Comenta a query para evitar erros no Azure
-                        sqlConnection.ChangeDatabase(dbName); // Muda o database na conexão para evitar erros no Azure
-                        listener.NotifyObject("connection.ChangeDatabase()  Database alterado para -> " + sqlConnection.Database);
-                    }
+                    fixedQuery = fixedQuery.Replace("USE", "-- USE"); // Comenta a query para evitar erros no Azure
+                    String dbName = subQuery.Replace("USE", "").Trim();
+                    sqlConnection.ChangeDatabase(dbName); // Muda o database na conexão para evitar erros no Azure
+                    listener.NotifyObject("connection.ChangeDatabase()  Database alterado para -> " + sqlConnection.Database);
                 }
 
                 DBQuery dbQuery = new DBQuery(fixedQuery, sqlConnection);
