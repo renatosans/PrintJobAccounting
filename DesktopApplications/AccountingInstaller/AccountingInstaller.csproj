@@ -91,6 +91,7 @@
     <Compile Include="DataManipulation\ImportController.cs" />
     <Compile Include="DataManipulation\ImportData.cs" />
     <Compile Include="DataManipulation\Recovery.cs" />
+    <Compile Include="DataManipulation\Relocate.cs" />
     <Compile Include="DataManipulation\ScriptRunner.cs" />
     <Compile Include="DataManipulation\SQLServerVersion.cs" />
     <Compile Include="DataManipulation\StartupData.cs" />

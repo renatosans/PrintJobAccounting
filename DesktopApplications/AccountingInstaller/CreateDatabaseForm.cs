@@ -30,6 +30,7 @@ namespace AccountingInstaller
 
         private SqlConnection sqlConnection;
         private String server;
+        private String initialCatalog;
         private DBLogin saLogin;
         private DBLogin sysLogin;
         private int sqlVersion;
@@ -55,6 +56,8 @@ namespace AccountingInstaller
             {
                 sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = @"Data Source=" + server + ";User=" + saLogin.username + "; password=" + saLogin.password;
+                if (!String.IsNullOrEmpty(initialCatalog))
+                    sqlConnection.ConnectionString += "; Initial Catalog=" + initialCatalog;
                 sqlConnection.Open();
             }
             catch (Exception exc)
@@ -177,6 +180,14 @@ namespace AccountingInstaller
             {
                 txtSALogin.Text = "Login(username:" + ((DBLogin)obj).username + ", password: *****)";
                 txtSALogin.Tag = obj;
+            }
+            if (obj is Relocate)
+            {
+                Relocate relocate = (Relocate)obj;
+                initialCatalog = relocate.databaseName;
+                CloseConnection();
+                OpenConnection();
+                relocate.sqlConnection = this.sqlConnection;
             }
             if (obj is String)
             {
