@@ -46,7 +46,7 @@ namespace AccountingInstaller.DataManipulation
                     String dbName = subQuery.Replace("USE", "").Trim();
                     Relocate relocate = new Relocate(dbName);
                     listener.NotifyObject(relocate);
-                    listener.NotifyObject("Relocate()  Database alterado para -> " + sqlConnection.Database);
+                    listener.NotifyObject("Relocate()  Database alterado para -> " + dbName);
                     this.sqlConnection = relocate.sqlConnection;
                 }
 
