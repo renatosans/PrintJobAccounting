@@ -44,10 +44,13 @@ namespace AccountingInstaller.DataManipulation
 
                     // Muda o database na conexão para evitar erros no Azure
                     String dbName = subQuery.Replace("USE ", "").Trim(); // Manter o espaço para não substituir USER
-                    Relocate relocate = new Relocate(dbName);
-                    listener.NotifyObject(relocate);
-                    listener.NotifyObject("Relocate()  Database alterado para -> " + dbName);
-                    this.sqlConnection = relocate.sqlConnection;
+                    if (dbName != sqlConnection.Database)
+                    {
+                        Relocate relocate = new Relocate(dbName);
+                        listener.NotifyObject(relocate);
+                        listener.NotifyObject("Relocate()  Database alterado para -> " + dbName);
+                        this.sqlConnection = relocate.sqlConnection;
+                    }
                 }
 
                 DBQuery dbQuery = new DBQuery(fixedQuery, sqlConnection);
