@@ -37,13 +37,13 @@ namespace AccountingInstaller.DataManipulation
             foreach (String subQuery in subQueries)
             {
                 String fixedQuery = subQuery;
-                if (subQuery.Contains("USE"))
+                if (subQuery.Contains("USE "))
                 {
                     // Comenta a query para evitar erros no Azure
-                    fixedQuery = fixedQuery.Replace("USE", "-- USE"); 
+                    fixedQuery = fixedQuery.Replace("USE ", "-- USE "); // Manter o espaço para não substituir USER
 
                     // Muda o database na conexão para evitar erros no Azure
-                    String dbName = subQuery.Replace("USE", "").Trim();
+                    String dbName = subQuery.Replace("USE ", "").Trim(); // Manter o espaço para não substituir USER
                     Relocate relocate = new Relocate(dbName);
                     listener.NotifyObject(relocate);
                     listener.NotifyObject("Relocate()  Database alterado para -> " + dbName);
