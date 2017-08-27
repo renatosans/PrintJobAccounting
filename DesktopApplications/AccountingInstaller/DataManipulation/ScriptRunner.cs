@@ -43,10 +43,12 @@ namespace AccountingInstaller.DataManipulation
             foreach (String subQuery in subQueries)
             {
                 String fixedQuery = subQuery;
+                Boolean changeDatabase = false;
                 // Comenta a query USE DATABASE para evitar erros no Azure, manter o espaço para não substituir USER
                 if (subQuery.Contains("USE "))
                 {
                     fixedQuery = fixedQuery.Replace("USE ", "-- USE ");
+                    changeDatabase = true;
                 }
 
                 // Remove keywords não suportados no Azure, mantem o resto da query intacta, vai rodar sem essa keyword
@@ -57,7 +59,7 @@ namespace AccountingInstaller.DataManipulation
                 }
 
                 // Muda o database na conexão para evitar erros no Azure, agrupa todas as tabelas e procedures no mesmo database
-                if (sqlConnection.Database != targetDatabase)
+                if ((changeDatabase) && (sqlConnection.Database != targetDatabase))
                 {
                     Relocate relocate = new Relocate(targetDatabase);
                     listener.NotifyObject(relocate);
