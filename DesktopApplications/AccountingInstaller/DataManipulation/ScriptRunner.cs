@@ -13,6 +13,8 @@ namespace AccountingInstaller.DataManipulation
 
         private IListener listener;
 
+        private String targetDatabase;
+
         private ContainerHandler containerHandler;
 
         private ProgressMeter progressMeter;
@@ -22,10 +24,11 @@ namespace AccountingInstaller.DataManipulation
         private int scriptsExecuted;
 
 
-        public ScriptRunner(SqlConnection sqlConnection, IListener listener)
+        public ScriptRunner(SqlConnection sqlConnection, IListener listener, String targetDatabase)
         {
             this.sqlConnection = sqlConnection;
             this.listener = listener;
+            this.targetDatabase = targetDatabase;
             this.containerHandler = new ContainerHandler();
         }
 
@@ -42,8 +45,9 @@ namespace AccountingInstaller.DataManipulation
                     // Comenta a query para evitar erros no Azure
                     fixedQuery = fixedQuery.Replace("USE ", "-- USE "); // Manter o espaço para não substituir USER
 
-                    // Muda o database na conexão para evitar erros no Azure
                     String dbName = subQuery.Replace("USE ", "").Trim(); // Manter o espaço para não substituir USER
+
+                    // Muda o database na conexão para evitar erros no Azure
                     if (dbName != sqlConnection.Database)
                     {
                         Relocate relocate = new Relocate(dbName);
