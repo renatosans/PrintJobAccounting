@@ -24,7 +24,7 @@ namespace AccountingInstaller.DataManipulation
         private int scriptsExecuted;
 
 
-        public ScriptRunner(SqlConnection sqlConnection, IListener listener, String targetDatabase)
+        public ScriptRunner(SqlConnection sqlConnection, IListener listener, String targetDatabase, String[] excludeList)
         {
             this.sqlConnection = sqlConnection;
             this.listener = listener;
@@ -40,21 +40,19 @@ namespace AccountingInstaller.DataManipulation
             foreach (String subQuery in subQueries)
             {
                 String fixedQuery = subQuery;
+                // Comenta a query USE DATABASE para evitar erros no Azure, manter o espaço para não substituir USER
                 if (subQuery.Contains("USE "))
                 {
-                    // Comenta a query para evitar erros no Azure
-                    fixedQuery = fixedQuery.Replace("USE ", "-- USE "); // Manter o espaço para não substituir USER
+                    fixedQuery = fixedQuery.Replace("USE ", "-- USE ");
+                }
 
-                    String dbName = subQuery.Replace("USE ", "").Trim(); // Manter o espaço para não substituir USER
-
-                    // Muda o database na conexão para evitar erros no Azure
-                    if (dbName != sqlConnection.Database)
-                    {
-                        Relocate relocate = new Relocate(dbName);
-                        listener.NotifyObject(relocate);
-                        listener.NotifyObject("Relocate()  Database alterado para -> " + dbName);
-                        this.sqlConnection = relocate.sqlConnection;
-                    }
+                // Muda o database na conexão para evitar erros no Azure, agrupa todas as tabelas e procedures no mesmo database
+                if (sqlConnection.Database != targetDatabase)
+                {
+                    Relocate relocate = new Relocate(targetDatabase);
+                    listener.NotifyObject(relocate);
+                    listener.NotifyObject("Relocate()  Database alterado para -> " + targetDatabase);
+                    this.sqlConnection = relocate.sqlConnection;
                 }
 
                 DBQuery dbQuery = new DBQuery(fixedQuery, sqlConnection);
