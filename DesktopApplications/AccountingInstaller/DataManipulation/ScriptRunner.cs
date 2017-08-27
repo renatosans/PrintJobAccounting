@@ -15,6 +15,8 @@ namespace AccountingInstaller.DataManipulation
 
         private String targetDatabase;
 
+        private String[] excludeList;
+
         private ContainerHandler containerHandler;
 
         private ProgressMeter progressMeter;
@@ -29,6 +31,7 @@ namespace AccountingInstaller.DataManipulation
             this.sqlConnection = sqlConnection;
             this.listener = listener;
             this.targetDatabase = targetDatabase;
+            this.excludeList = excludeList;
             this.containerHandler = new ContainerHandler();
         }
 
@@ -44,6 +47,13 @@ namespace AccountingInstaller.DataManipulation
                 if (subQuery.Contains("USE "))
                 {
                     fixedQuery = fixedQuery.Replace("USE ", "-- USE ");
+                }
+
+                // Remove keywords não suportados no Azure, mantem o resto da query intacta, vai rodar sem essa keyword
+                foreach(String keyword in excludeList)
+                {
+                    if (fixedQuery.Contains(keyword))
+                        fixedQuery = fixedQuery.Replace(keyword, "");
                 }
 
                 // Muda o database na conexão para evitar erros no Azure, agrupa todas as tabelas e procedures no mesmo database
