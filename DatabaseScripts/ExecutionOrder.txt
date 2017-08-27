@@ -1,5 +1,5 @@
-.\AppCommon\CreateDatabase.sql
 .\Accounting\CreateDatabase.sql
+.\AppCommon\CreateDatabase.sql
 .\AppCommon\Tables\tb_application.sql
 .\AppCommon\Tables\tb_applicationParam.sql
 .\AppCommon\Procedures\pr_retrieveParams.sql
