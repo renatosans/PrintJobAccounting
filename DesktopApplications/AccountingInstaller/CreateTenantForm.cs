@@ -95,9 +95,8 @@ namespace AccountingInstaller
             {
                 DBQuery dbQuery = new DBQuery(sqlConnection);
 
-                // Altera o database para "AppCommon"
-                dbQuery.Query = "USE AppCommon";
-                dbQuery.Execute(false);
+                // dbQuery.Query = "USE AppCommon";
+                // dbQuery.Execute(false);
 
                 // Insere a empresa no banco de dados (guarda o id da empresa inserida no banco)
                 txtProcessInfo.Text += Environment.NewLine + "Inserindo a empresa no BD...";
@@ -151,9 +150,8 @@ namespace AccountingInstaller
         {
             DBQuery dbQuery = new DBQuery(sqlConnection);
 
-            // Altera o database para "AppCommon"
-            dbQuery.Query = "USE AppCommon";
-            dbQuery.Execute(false);
+            // dbQuery.Query = "USE AppCommon";
+            // dbQuery.Execute(false);
 
             // Busca todos os tenants cadastrados no banco
             dbQuery.Query = "SELECT * FROM tb_tenant";

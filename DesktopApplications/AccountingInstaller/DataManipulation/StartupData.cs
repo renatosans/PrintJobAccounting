@@ -26,6 +26,7 @@ namespace AccountingInstaller.DataManipulation
             try
             {
                 sqlConnection.ConnectionString = @"Data Source=" + saAccess.server + ";User=" + saAccess.saLogin.username + "; password=" + saAccess.saLogin.password;
+                sqlConnection.ConnectionString += "; Initial Catalog=Accounting";
                 sqlConnection.Open();
             }
             catch
@@ -50,13 +51,13 @@ namespace AccountingInstaller.DataManipulation
             try
             {
                 dbQuery = new DBQuery(sqlConnection);
-                // Muda para o bando de dados "AppCommon"
-                dbQuery.Query = "use AppCommon";
-                dbQuery.Execute(false);
+
+                // dbQuery.Query = "use AppCommon";
+                // dbQuery.Execute(false);
             }
             catch (Exception exc)
             {
-                lastError = "Não foi possível acessar o database AppCommon. " + exc.Message;
+                lastError = "Não foi possível acessar setar o database. " + exc.Message;
                 return false;
             }
 
