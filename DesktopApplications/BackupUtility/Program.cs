@@ -31,7 +31,7 @@ namespace BackupUtility
                     String dataDirectory = PathFormat.Adjust(baseDir) + "Data";
                     Directory.CreateDirectory(dataDirectory);
 
-                    // Executa a exportação dos databases "AppCommon" e "Accounting"
+                    // Executa a exportação dos databases
                     Recovery recovery = new Recovery(saAccess, dataDirectory);
                     recovery.DBExport("AppCommon");
                     recovery.DBExport("Accounting");

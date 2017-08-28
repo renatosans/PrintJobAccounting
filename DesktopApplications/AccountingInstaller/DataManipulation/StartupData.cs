@@ -57,7 +57,7 @@ namespace AccountingInstaller.DataManipulation
             }
             catch (Exception exc)
             {
-                lastError = "Não foi possível acessar setar o database. " + exc.Message;
+                lastError = "Não foi possível setar o database. " + exc.Message;
                 return false;
             }
 
