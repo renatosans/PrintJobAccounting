@@ -75,8 +75,7 @@ namespace AccountingInstaller.DataManipulation
 
         public void RunAll(String scriptsDirectory, IProgressListener progressListener)
         {
-            listener.NotifyObject("Origem(caminho): " + scriptsDirectory);
-            listener.NotifyObject("Destino(database): " + sqlConnection.Database);
+            listener.NotifyObject("Origem: [DatabaseScripts]   Destino(database): " + sqlConnection.Database);
 
             String path = PathFormat.Adjust(scriptsDirectory);
             List<String> scriptList = new List<String>();
