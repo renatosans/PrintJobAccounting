@@ -160,6 +160,7 @@ namespace AccountingInstaller
             {
                 sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = @"Data Source=" + saAccess.server + ";User=" + saAccess.saLogin.username + "; password=" + saAccess.saLogin.password;
+                sqlConnection.ConnectionString += "; Initial Catalog=Accounting";
                 sqlConnection.Open();
             }
             catch (Exception exc)
@@ -193,9 +194,10 @@ namespace AccountingInstaller
             try
             {
                 DBQuery dbQuery = new DBQuery(sqlConnection);
-                // Altera o database para "AppCommon"
-                dbQuery.Query = "USE AppCommon";
-                dbQuery.Execute(false);
+
+                // dbQuery.Query = "USE AppCommon";
+                // dbQuery.Execute(false);
+
                 // Atualiza a url de acesso ao sistema no banco
                 dbQuery.Query = "UPDATE tb_applicationParam SET value = '" + txtUrl.Text + "' WHERE name = 'url' AND ownerTask='webAccounting'";
                 dbQuery.Execute(false);

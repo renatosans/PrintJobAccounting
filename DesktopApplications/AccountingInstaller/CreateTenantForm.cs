@@ -55,6 +55,7 @@ namespace AccountingInstaller
             {
                 sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = @"Data Source=" + saAccess.server + ";User=" + saAccess.saLogin.username + "; password=" + saAccess.saLogin.password;
+                sqlConnection.ConnectionString += "; Initial Catalog=Accounting";
                 sqlConnection.Open();
             }
             catch (Exception exc)
