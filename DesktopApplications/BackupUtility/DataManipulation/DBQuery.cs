@@ -47,6 +47,7 @@ namespace DataManipulation
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.CommandText = query;
+            sqlCommand.CommandTimeout = 60;
             sqlCommand.Parameters.Clear();
 
             // Armazena o retorno caso solicitado
