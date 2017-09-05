@@ -30,18 +30,20 @@
         {
             this.btnIniciar = new System.Windows.Forms.Button();
             this.txtServer = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblServer = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblComments = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(159, 208);
+            this.btnIniciar.Location = new System.Drawing.Point(212, 256);
+            this.btnIniciar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(105, 34);
+            this.btnIniciar.Size = new System.Drawing.Size(140, 42);
             this.btnIniciar.TabIndex = 0;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = true;
@@ -49,70 +51,87 @@
             // 
             // txtServer
             // 
-            this.txtServer.Location = new System.Drawing.Point(122, 24);
+            this.txtServer.Location = new System.Drawing.Point(163, 30);
+            this.txtServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(264, 20);
+            this.txtServer.Size = new System.Drawing.Size(351, 22);
             this.txtServer.TabIndex = 1;
             this.txtServer.Text = "SERVER1\\SQLEXPRESS";
             // 
-            // label1
+            // lblServer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Servidor";
+            this.lblServer.AutoSize = true;
+            this.lblServer.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServer.Location = new System.Drawing.Point(45, 34);
+            this.lblServer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblServer.Name = "lblServer";
+            this.lblServer.Size = new System.Drawing.Size(76, 19);
+            this.lblServer.TabIndex = 2;
+            this.lblServer.Text = "Servidor";
             // 
-            // label2
+            // lblUsername
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Username";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(45, 91);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(88, 19);
+            this.lblUsername.TabIndex = 4;
+            this.lblUsername.Text = "Username";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(122, 70);
+            this.txtUsername.Location = new System.Drawing.Point(163, 86);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(264, 20);
+            this.txtUsername.Size = new System.Drawing.Size(351, 22);
             this.txtUsername.TabIndex = 3;
             this.txtUsername.Text = "sa";
             // 
-            // label3
+            // lblPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 121);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Password";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(47, 149);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(87, 19);
+            this.lblPassword.TabIndex = 6;
+            this.lblPassword.Text = "Password";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(123, 117);
+            this.txtPassword.Location = new System.Drawing.Point(164, 144);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(264, 20);
+            this.txtPassword.Size = new System.Drawing.Size(351, 22);
             this.txtPassword.TabIndex = 5;
+            // 
+            // lblComments
+            // 
+            this.lblComments.Location = new System.Drawing.Point(48, 183);
+            this.lblComments.Name = "lblComments";
+            this.lblComments.Size = new System.Drawing.Size(468, 51);
+            this.lblComments.TabIndex = 7;
+            this.lblComments.Text = "Realizar o backup manual de tabelas com mais de 1 milhão de registro.  O utilitár" +
+    "io foi configurado para pular essas tabelas para evitar estouro de memória";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 254);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(564, 313);
+            this.Controls.Add(this.lblComments);
+            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblServer);
             this.Controls.Add(this.txtServer);
             this.Controls.Add(this.btnIniciar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Backup";
             this.ResumeLayout(false);
@@ -124,11 +143,12 @@
 
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.TextBox txtServer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblServer;
+        private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblComments;
     }
 }
 

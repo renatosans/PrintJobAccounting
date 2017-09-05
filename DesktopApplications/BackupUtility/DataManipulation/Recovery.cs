@@ -174,6 +174,12 @@ namespace DataManipulation
 
             foreach (DBObject table in tableList)
             {
+                // Verifica a quantidade de registros da tabela
+                dbQuery.Query = "SELECT COUNT(1) FROM " + table.name;
+                dbQuery.Execute(true);
+                int? rowCount = dbQuery.ExtractFromResultset();
+                if (rowCount > 1000000) continue; // Pula tabelas com mais de 1 milhão de registros ( backup manual )
+
                 dbQuery.Query = "SELECT name FROM sysColumns WHERE id = " + table.id;
                 dbQuery.Execute(true);
                 List<Object> fieldList = dbQuery.ExtractFromResultset(new String[] { "name" });
