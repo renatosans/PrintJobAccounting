@@ -136,12 +136,13 @@ namespace AccountingInstaller
             // Executa a importação/recuperação da massa de dados
             Recovery recovery = new Recovery(saAccess, dataDirectory);
             Boolean imported;
-            imported = recovery.DBImport("AppCommon", selectedTenants, true, this);
-            if (!imported)
-            {
-                txtProcessInfo.Text += Environment.NewLine + executionFail + recovery.GetLastError();
-                return false;
-            }
+            // ************  Tabelas migradas para Accounting para evitar erros no Azure  ************
+            // imported = recovery.DBImport("AppCommon", selectedTenants, true, this);
+            // if (!imported)
+            // {
+            //    txtProcessInfo.Text += Environment.NewLine + executionFail + recovery.GetLastError();
+            //    return false;
+            // }
             imported = recovery.DBImport("Accounting", selectedTenants, true, this);
             if (!imported)
             {
