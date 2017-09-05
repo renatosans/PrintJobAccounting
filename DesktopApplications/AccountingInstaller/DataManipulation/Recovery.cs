@@ -56,6 +56,7 @@ namespace AccountingInstaller.DataManipulation
             try
             {
                 sqlConnection.ConnectionString = @"Data Source=" + saAccess.server + ";User=" + saAccess.saLogin.username + "; password=" + saAccess.saLogin.password;
+                sqlConnection.ConnectionString += "; Initial Catalog=Accounting";
                 sqlConnection.Open();
             }
             catch

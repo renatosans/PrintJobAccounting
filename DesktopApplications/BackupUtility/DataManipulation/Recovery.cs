@@ -56,6 +56,7 @@ namespace DataManipulation
             try
             {
                 sqlConnection.ConnectionString = @"Data Source=" + saAccess.server + ";User=" + saAccess.saLogin.username + "; password=" + saAccess.saLogin.password;
+                sqlConnection.ConnectionString += "; Initial Catalog=Accounting";
                 sqlConnection.Open();
             }
             catch
@@ -222,9 +223,9 @@ namespace DataManipulation
             if (rowCollection.FirstChild == null) return true;
 
             DBQuery dbQuery = new DBQuery(sqlConnection);
-            // Altera o banco de dados para o banco onde a tabela se encontra
-            dbQuery.Query = "use " + currentDatabase;
-            dbQuery.Execute(false);
+            // Evita alterar o banco de dados pois o Microsoft Azure não tem suporte a essa operação
+            // dbQuery.Query = "use " + currentDatabase;
+            // dbQuery.Execute(false);
 
             // Verifica se a tabela já está populada, se estiver aborta
             ImportController controller = new ImportController(sqlConnection, importData, this);
