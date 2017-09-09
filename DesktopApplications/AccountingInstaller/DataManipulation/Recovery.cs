@@ -33,6 +33,8 @@ namespace AccountingInstaller.DataManipulation
 
         private ProgressMeter progressMeter;
 
+        private String progressLog;
+
         private String warnings;
 
         private String lastError;
@@ -207,6 +209,7 @@ namespace AccountingInstaller.DataManipulation
         private Boolean ImportFile(String filename, List<int> tenantsToImport, Boolean preserveRecordId)
         {
             String tableName = "tb_" + Path.GetFileNameWithoutExtension(filename);
+            progressLog += tableName + Environment.NewLine;
             XmlNode rowCollection;
 
             ImportData importData = new ImportData(filename);
@@ -255,7 +258,7 @@ namespace AccountingInstaller.DataManipulation
             }
             catch (Exception exc)
             {
-                lastError = exc.Message + Environment.NewLine + exc.StackTrace;
+                lastError = exc.Message + Environment.NewLine + progressLog;
                 return false;
             }
 
@@ -289,6 +292,7 @@ namespace AccountingInstaller.DataManipulation
             filesToImport = ImportContext.SortImportFiles(sqlConnection, databaseName, dataFiles);
             foreach (String filename in filesToImport)
             {
+                progressLog = "Lista de tabelas processadas: " + Environment.NewLine;
                 if (!ImportFile(filename, tenantsToImport, preserveRecordId))
                 {
                     CloseConnection();
