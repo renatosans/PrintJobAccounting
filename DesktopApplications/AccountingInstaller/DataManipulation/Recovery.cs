@@ -255,7 +255,7 @@ namespace AccountingInstaller.DataManipulation
             }
             catch (Exception exc)
             {
-                lastError = exc.Message;
+                lastError = exc.Message + Environment.NewLine + exc.StackTrace;
                 return false;
             }
 
