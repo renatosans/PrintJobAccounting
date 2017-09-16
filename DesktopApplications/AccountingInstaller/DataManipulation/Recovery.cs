@@ -290,9 +290,9 @@ namespace AccountingInstaller.DataManipulation
 
             // Ordena os arquivos encontrados no diretório e importa apenas os que pertencem ao database
             filesToImport = ImportContext.SortImportFiles(sqlConnection, databaseName, dataFiles);
+            progressLog = "Lista de tabelas processadas: " + Environment.NewLine;
             foreach (String filename in filesToImport)
             {
-                progressLog = "Lista de tabelas processadas: " + Environment.NewLine;
                 if (!ImportFile(filename, tenantsToImport, preserveRecordId))
                 {
                     CloseConnection();
