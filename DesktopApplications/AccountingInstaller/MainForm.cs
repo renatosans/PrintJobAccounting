@@ -114,7 +114,9 @@ namespace AccountingInstaller
         {
             // Extrai os arquivos de instalação do pacote (zip)
             if (!ExtractInstallationFiles()) return;
-            
+
+            // DBAccess.BuildDataAccess(server, sysLogin.username, sysLogin.password, installationFilesDirectory);
+
             switch (beginAt)
             {
                 case 1:
