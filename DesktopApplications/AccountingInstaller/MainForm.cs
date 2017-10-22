@@ -41,18 +41,9 @@ namespace AccountingInstaller
             this.Refresh();
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(AssemblyResolveHandler);
 
-            // Utiliza os parâmetros da linha de comando, inicia em "beginAt"
+            // Utiliza os parâmetros da linha de comando, inicia a instalação a partir do form definido por "beginAt"
             if ((this.beginAt != -1) && (saAccess != null))
             {
-                // Cria o diretório temporário para os arquivos de instalação caso não exista
-                String tempFolder = PathFormat.Adjust(Path.GetTempPath());
-                String installationFilesDirectory = PathFormat.Adjust(tempFolder + "AccountingServerFiles");
-                Directory.CreateDirectory(installationFilesDirectory);
-
-                // Cria o XML de configuração no diretório temporário
-                DBAccess.BuildDataAccess(saAccess.server, "FrameworkUser", "Abcd1234.", installationFilesDirectory);
-
-                // Inicia a instalação a partir do form definido por "beginAt"
                 this.btnInstall.Enabled = false;
                 BeginInstallationProcess();
             }
@@ -115,7 +106,12 @@ namespace AccountingInstaller
             // Extrai os arquivos de instalação do pacote (zip)
             if (!ExtractInstallationFiles()) return;
 
-            // DBAccess.BuildDataAccess(server, sysLogin.username, sysLogin.password, installationFilesDirectory);
+            if ((this.beginAt != -1) && (saAccess != null))
+            {
+                // Cria o XML de configuração no diretório temporário
+                String installationFilesDirectory = Path.Combine(Path.GetTempPath(), "AccountingServerFiles");
+                DBAccess.BuildDataAccess(saAccess.server, "FrameworkUser", "Abcd1234.", installationFilesDirectory);
+            }
 
             switch (beginAt)
             {
