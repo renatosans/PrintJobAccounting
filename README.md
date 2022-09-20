@@ -11,3 +11,5 @@ This tool logs are in the format:
         //     daily         Ex.:  papercut-print-log-2022-09-19.csv
         //     montlhy       Ex.:  papercut-print-log-2022-09.csv
         //     all-time      Ex.:  papercut-print-log-all-time.csv
+
+The web interface provides an Endpoint to register client Printers,  printers are discovered using SNMP and page counters are sent to the backend so that reports can be generated using printer info.
