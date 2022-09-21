@@ -16,3 +16,7 @@ https://www.papercut.com/products/free-software/#print-logger
 
 
 The web interface provides an Endpoint to register client Printers,  printers are discovered using SNMP and page counters are sent to the backend so that reports can be generated using printer info.
+
+SNMP discovery service (printer and network equipment) depends on a external C# library  ->   SharpSnmpLib
+
+Possible update to this NPM package ->   https://www.npmjs.com/package/net-snmp,   using   PM2  to keek service runing after restarts.
