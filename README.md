@@ -20,3 +20,13 @@ The web interface provides an Endpoint to register client Printers,  printers ar
 SNMP discovery service (printer and network equipment) depends on a external C# library  ->   SharpSnmpLib
 
 Possible update to this NPM package ->   https://www.npmjs.com/package/net-snmp,   using   PM2  to keek service runing after restarts.
+
+OIDs  used to find printer info on client network
+
+        // Serial BROTHER - .1.3.6.1.2.1.43.5.1.1.17.1
+        // Serial RICOH - .1.3.6.1.4.1.367.3.2.1.2.1.4.0
+        // Serial LEXMARK - .1.3.6.1.4.1.641.2.1.2.1.6.1
+        // Page Count - .1.3.6.1.2.1.43.10.2.1.4.1.1
+        // Printer Description - .1.3.6.1.2.1.25.3.2.1.3.1
+        // Printer Status - .1.3.6.1.2.1.25.3.5.1.1.1
+        // Toner Estimated Capacity % - .1.3.6.1.4.1.367.3.2.1.2.24.1.1.5.1
